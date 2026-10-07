@@ -33,7 +33,7 @@ The **Battery Thermal Management System (BTMS)** is an enterprise-grade, AI-driv
 
 ## 2. System Architecture & Data Pipeline
 
-The BTMS architecture follows a cloud-native, loosely coupled **microservices architecture** deployed across isolated Docker network bridges with Redis asynchronous message queues.
+The BTMS architecture follows a cloud-native, loosely coupled **microservices architecture** deployed across isolated Docker network bridges with Apache Kafka topics.
 
 ### 2.1 Microservices Architecture Diagram
 
@@ -48,7 +48,7 @@ graph TD
     end
 
     subgraph BROKER_TIER["Message Broker Layer"]
-        REDIS["Redis Message Broker<br/><code>redis:alpine (Port 6379)</code><br/>Queue: <code>battery_stream</code><br/>(LPUSH / RPOP Bounded 200)"]
+        REDIS["Kafka Message Broker<br/><code>apache/kafka (Port 9092)</code><br/>Topic: <code>battery_stream</code>"]
     end
 
     subgraph AI_CFD_TIER["AI Inference & Physics Layer"]
@@ -64,8 +64,8 @@ graph TD
     end
 
     SIM -->|HTTP JSON Telemetry| INGEST
-    INGEST -->|LPUSH Normalized Payload| REDIS
-    REDIS -->|RPOP Queue Worker| AI
+    INGEST -->|Produce Normalized Payload| REDIS
+    REDIS -->|Consumer Worker| AI
     AI -->|State Synchronization| DASH
     AUTH -->|JWT Bearer Token Auth| DASH
     AUTH -->|User Identity Probes| AI
@@ -78,7 +78,7 @@ sequenceDiagram
     autonumber
     participant Sim as Sensor Simulator
     participant Ingest as Ingestion Service (Flask)
-    participant Redis as Redis (battery_stream)
+    participant Kafka as Kafka (battery_stream)
     participant AI as AI Engine (FastAPI)
     participant ML as IsolationForest ML Model
     participant CFD as CFD Physics Engine
@@ -87,8 +87,8 @@ sequenceDiagram
     loop Every 1 Second (1 Hz)
         Sim->>Ingest: POST /telemetry (10 cells: V, I, T, SoC)
         Ingest->>Ingest: Normalize T: (T - 0)/(60 - 0)
-        Ingest->>Redis: LPUSH battery_stream (payload)
-        Redis-->>AI: RPOP battery_stream (background queue worker)
+        Ingest->>Kafka: produce battery_stream (payload)
+        Kafka-->>AI: consume battery_stream (background consumer)
         AI->>ML: Ingest & Score 8D Feature Vector
         ML-->>AI: Anomaly Score, Confidence, Severity (normal/warning/critical)
         AI->>CFD: Compute Nanofluid Props (ρ_nf, μ_nf, k_nf) & Target Re
@@ -113,7 +113,7 @@ sequenceDiagram
 | **ASGI Server** | Uvicorn (Standard) | `0.30.6` | Production-grade ASGI server with event loop optimization |
 | **Machine Learning** | scikit-learn | `1.5.1` | `IsolationForest` unsupervised tree ensemble for anomaly detection |
 | **Numerical Computing** | NumPy | `1.26.4` | Vectorized matrix operations, percentile calculations, feature arrays |
-| **Message Broker** | Redis / Redis-Py | `5.0.7` | In-memory message broker with LPUSH/RPOP bounded streaming queues |
+| **Message Broker** | Apache Kafka / confluent-kafka | `2.5.0` | Distributed log message broker (KRaft) with the battery_stream topic |
 | **Authentication** | PyJWT, bcrypt, SQLite3 | `2.9.0 / 4.2.0` | Cryptographic password hashing, JWT bearer tokens, ACID storage |
 | **Frontend Framework** | React | `18.3.1` | Single-page digital twin monitoring interface |
 | **3D Graphics** | Three.js / React Three Fiber | `0.160+` | Interactive 3D battery module visualizer with heat gradient rendering |
@@ -276,12 +276,12 @@ An $\text{Al}_2\text{O}_3$ (aluminum oxide) nanoparticle suspension in deionized
 ### 7.1 AI Optimization Engine (`http://localhost:8000`)
 
 #### `GET /health`
-Returns service availability, model readiness, and Redis connectivity.
+Returns service availability, model readiness, and Kafka connectivity.
 ```json
 {
   "service": "ai-engine",
   "status": "healthy",
-  "redis": true,
+  "kafka": true,
   "model_ready": true,
   "samples_seen": 420
 }
@@ -420,7 +420,7 @@ Health check endpoint for container orchestrators.
 ### 7.3 Ingestion Service (`http://localhost:5001`)
 
 #### `POST /telemetry`
-Accepts raw sensor JSON, normalizes temperatures, and enqueues to Redis `battery_stream`.
+Accepts raw sensor JSON, normalizes temperatures, and publishes to Kafka topic `battery_stream`.
 - **Request Body**:
   ```json
   {
@@ -434,12 +434,12 @@ Accepts raw sensor JSON, normalizes temperatures, and enqueues to Redis `battery
 - **Response**: `202 Accepted` (`{"status": "queued", "tick": 1}`)
 
 #### `GET /health`
-Health check and Redis connectivity verification.
+Health check and Kafka connectivity verification.
 ```json
 {
   "service": "ingestion",
   "status": "ok",
-  "redis": "ok"
+  "kafka": "ok"
 }
 ```
 
@@ -510,7 +510,7 @@ docker compose down
 ```
 
 ### Mode B: Lightweight Standalone Dev Server
-Runs the battery pack simulation, Isolation Forest ML model, and CFD optimization engine in a single process without Docker or Redis dependencies:
+Runs the battery pack simulation, Isolation Forest ML model, and CFD optimization engine in a single process without Docker or Kafka dependencies:
 
 ```bash
 # 1. Start the unified backend (FastAPI on Port 8000)
@@ -547,8 +547,8 @@ python tests/synthetic/generator.py --strategy all --ticks 200 --seed 42
 
 | Service Name | Internal Port | Host Port | Protocol | Primary Responsibilities |
 |---|---|---|---|---|
-| **`message-broker`** | `6379` | `6379` | TCP / Redis | Telemetry queuing, decoupling ingestion from AI inference |
-| **`ingestion-service`** | `5000` | `5001` | HTTP / Flask | Telemetry validation, min-max normalization, Redis enqueuing |
+| **`message-broker`** | `9092` | `9092` | TCP / Kafka | Telemetry queuing, decoupling ingestion from AI inference |
+| **`ingestion-service`** | `5000` | `5001` | HTTP / Flask | Telemetry validation, min-max normalization, Kafka publishing |
 | **`ai-engine`** | `8000` | `8000` | HTTP / FastAPI | Isolation Forest anomaly scoring, online retraining, CFD nanofluid calculations |
 | **`simulator`** | *N/A* | *N/A* | HTTP Client | Autonomous 10-cell physical sensor simulation & thermal spike injection |
 | **`auth-service`** | `9000` | `9000` | HTTP / FastAPI | SQLite user database, password hashing, JWT token authentication |

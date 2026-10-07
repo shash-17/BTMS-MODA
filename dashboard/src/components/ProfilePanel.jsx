@@ -6,7 +6,7 @@ import { useToast } from "./ToastNotification";
 export default function ProfilePanel({ onClose, sessionStart }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const { addToast } = useToast();
+  const { addToast, notificationsEnabled, toggleNotifications } = useToast();
   const [pwMode, setPwMode] = useState(false);
   const [currentPw, setCurrentPw] = useState("");
   const [newPw, setNewPw] = useState("");
@@ -114,6 +114,26 @@ export default function ProfilePanel({ onClose, sessionStart }) {
             <div className="profile-info-row">
               <span className="profile-info-label">Session Age</span>
               <span className="profile-info-value">{formatAge(sessionAge)}</span>
+            </div>
+          </div>
+
+          {/* Preferences */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <div className="profile-section-divider">Preferences</div>
+            <div className="profile-info-row">
+              <span className="profile-info-label" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ fontSize: 14 }}>🔔</span> Notifications
+              </span>
+              <button
+                id="toggle-notifications-btn"
+                className={`notif-toggle${notificationsEnabled ? " notif-toggle--on" : ""}`}
+                onClick={toggleNotifications}
+                aria-checked={notificationsEnabled}
+                role="switch"
+                aria-label="Toggle notification popups"
+              >
+                <span className="notif-toggle-thumb" />
+              </button>
             </div>
           </div>
 

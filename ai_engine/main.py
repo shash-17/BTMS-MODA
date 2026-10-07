@@ -2,7 +2,7 @@
 BTMS AI Optimisation Engine  (v2 — with ML Anomaly Detection)
 ─────────────────────────────────────────────────────────────────────
 FastAPI service that:
-  1. Continuously consumes telemetry from the Redis 'battery_stream' queue
+  1. Continuously consumes telemetry from the Apache Kafka 'battery_stream' topic
      (via a background worker thread).
   2. Runs an IsolationForest anomaly detector on every telemetry tick.
      The detector bootstraps on synthetic normal data at startup, then
@@ -36,7 +36,7 @@ import time
 from datetime import datetime
 from typing import Optional
 
-import redis
+from confluent_kafka import Consumer, KafkaException, Producer
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -49,12 +49,35 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ─── Redis ────────────────────────────────────────────────────────────────────
-REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-QUEUE_NAME = "battery_stream"
+# ─── Kafka ────────────────────────────────────────────────────────────────────
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "battery_stream")
+KAFKA_GROUP_ID = os.getenv("KAFKA_GROUP_ID", "btms-ai-engine")
 
-redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True)
+ALERTS_TOPIC = os.getenv("KAFKA_ALERTS_TOPIC", "btms_alerts")
+RECOMMENDATIONS_TOPIC = os.getenv("KAFKA_RECOMMENDATIONS_TOPIC", "btms_recommendations")
+
+kafka_connected = False
+_producer: Optional[Producer] = None
+
+
+def publish_event(topic: str, payload: dict, key: str = "btms-pack") -> None:
+    """Publish a downstream event (non-blocking; failures never stop the worker)."""
+    global _producer
+    try:
+        if _producer is None:
+            _producer = Producer({
+                "bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS,
+                "linger.ms": 5,
+                "message.timeout.ms": 5000,
+            })
+        _producer.produce(
+            topic, key=key,
+            value=json.dumps(payload, default=lambda o: o.item() if hasattr(o, "item") else str(o)).encode("utf-8"),
+        )
+        _producer.poll(0)
+    except Exception as e:
+        logger.warning("Could not publish to %s: %s", topic, e)
 
 # ─── ML Anomaly Detector (initialised once at import time) ────────────────────
 detector = BTMSAnomalyDetector()
@@ -190,20 +213,34 @@ def cfd_optimise(cells: list[dict], ml_severity: str) -> dict:
 
 def queue_worker():
     """
-    Continuously reads telemetry from Redis.
+    Continuously consumes telemetry from the Kafka topic.
     On each tick:
       1. Feeds cells to the ML anomaly detector (ingest + detect).
       2. Passes ML severity to cfd_optimise for coolant recommendations.
       3. Stores results in shared state for the API endpoints.
     """
-    logger.info("Queue worker started — polling 'battery_stream'")
+    global kafka_connected
+    logger.info("Kafka worker started — consuming topic '%s'", KAFKA_TOPIC)
+    consumer = None
     while True:
         try:
-            item = redis_client.brpop(QUEUE_NAME, timeout=2)
-            if item is None:
-                continue
+            if consumer is None:
+                consumer = Consumer({
+                    "bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS,
+                    "group.id": KAFKA_GROUP_ID,
+                    "auto.offset.reset": "latest",
+                    "enable.auto.commit": True,
+                })
+                consumer.subscribe([KAFKA_TOPIC])
 
-            _, raw    = item
+            msg = consumer.poll(2.0)
+            if msg is None:
+                continue
+            if msg.error():
+                raise KafkaException(msg.error())
+            kafka_connected = True
+
+            raw       = msg.value().decode("utf-8")
             payload   = json.loads(raw)
             cells     = payload.get("cells", [])
             if not cells:
@@ -225,6 +262,23 @@ def queue_worker():
                 latest_telemetry       = payload
                 latest_recommendation  = recommendation
                 latest_anomaly         = anomaly_result
+
+            # ── Step 4: Publish downstream events (event-driven architecture) ──
+            event = {
+                "tick": payload.get("tick"),
+                "pack_id": payload.get("pack_id"),
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "severity": ml_severity,
+                "anomalous_cells": anomaly_result.get("anomalous_cells", []),
+                "confidence": anomaly_result.get("pack_confidence", 0),
+                "max_temp": recommendation["max_temp"],
+                "delta_t": recommendation["delta_t"],
+                "target_re": recommendation["target_re"],
+                "al2o3_vol_percent": recommendation["al2o3_vol_percent"],
+            }
+            publish_event(RECOMMENDATIONS_TOPIC, event)
+            if anomaly_result.get("pack_anomaly"):
+                publish_event(ALERTS_TOPIC, event)
 
             # ── Logging ────────────────────────────────────────────────────
             if anomaly_result.get("pack_anomaly"):
@@ -249,8 +303,9 @@ def queue_worker():
                     recommendation["target_re"],
                 )
 
-        except redis.RedisError as e:
-            logger.error("Redis error: %s — retrying in 3 s", e)
+        except KafkaException as e:
+            kafka_connected = False
+            logger.error("Kafka error: %s — retrying in 3 s", e)
             time.sleep(3)
         except Exception as e:
             logger.exception("Worker error: %s", e)
@@ -292,18 +347,14 @@ def startup_event():
 @app.get("/health")
 def health():
     """Service health check including ML model status."""
-    try:
-        redis_client.ping()
-        redis_ok = True
-    except Exception:
-        redis_ok = False
+    kafka_ok = kafka_connected
 
     model_status = detector.status()
     return {
         "service":     "ai-engine",
         "version":     "2.0.0",
         "status":      "ok",
-        "redis":       redis_ok,
+        "kafka":       kafka_ok,
         "ml_model":    {
             "ready":        model_status["model_ready"],
             "train_count":  model_status["train_count"],

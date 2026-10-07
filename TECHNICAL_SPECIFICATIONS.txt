@@ -1,0 +1,114 @@
+================================================================================
+BATTERY THERMAL MANAGEMENT SYSTEM (BTMS)
+TECHNICAL SPECIFICATION DOCUMENT
+================================================================================
+
+1. EXECUTIVE SUMMARY & SYSTEM OVERVIEW
+--------------------------------------------------------------------------------
+The Battery Thermal Management System (BTMS) is an enterprise-grade, AI-driven 
+microservices platform engineered to monitor, simulate, and optimize the thermal 
+performance of high-density lithium-ion battery packs for electric vehicles (EVs) 
+and grid storage systems.
+
+Physical Target Specification:
+- Battery Cells: 10 x 21700 Cylindrical Cells
+- Chemistry: Lithium-ion (NMC/NCA)
+- Enclosure: Aluminum Alloy Casing
+- Microchannel Geometry: Embedded Circular Channels
+- Hydraulic Diameter (Dh): 1.0 mm
+- Channel Length (L): 0.1 m (100 mm)
+- Target Safe Operating Range: 15.0°C – 45.0°C
+- Temperature Uniformity (ΔT): < 5.0°C across all cells
+- Coolant Medium: Al2O3 / Deionized Water NF
+
+2. TECHNOLOGY STACK
+--------------------------------------------------------------------------------
+- Programming Language: Python 3.11 / 3.12 (Backend)
+- Frontend Framework: React 18.3.1 (Single-page digital twin monitoring interface)
+- 3D Graphics: Three.js / React Three Fiber 0.160+ (3D interactive battery module visualizer)
+- UI Styling: Modern Vanilla CSS
+- Build Tool: Vite 5.4.2
+- Inference & Physics API: FastAPI 0.115.0 (High-performance async REST API)
+- ASGI Server: Uvicorn Standard 0.30.6
+- Ingestion API: Flask 3.0.3, Werkzeug
+- CORS Middleware: Flask-CORS 4.0.1+
+- Machine Learning: scikit-learn 1.5.1 (IsolationForest)
+- Numerical Computing: NumPy 1.26.4
+- Message Broker: Apache Kafka (KRaft) / confluent-kafka 2.5.0 (battery_stream topic)
+- Authentication: PyJWT 2.9.0, bcrypt 4.2.0, SQLite3
+- Containerization: Docker & Docker Compose v2+
+- Web Server / Proxy: Nginx Alpine 1.29.8
+- Testing & QA: Pytest, Requests 8.3.3, mutmut (Mutation), locust (Performance), Wapiti (Security)
+
+3. SYSTEM ARCHITECTURE & MICROSERVICES
+--------------------------------------------------------------------------------
+- Sensing & Simulation Layer: Generates 1 Hz telemetry for 10 x 21700 cells.
+- Ingestion Layer: Flask service parsing POST /telemetry with Min-Max normalization.
+- Broker Layer: Apache Kafka message broker; ingestion produces to and AI Engine consumes from the battery_stream topic.
+- AI Inference & CFD Layer: FastAPI service running the IsolationForest anomaly detector and Computational Fluid Dynamics (CFD) physics calculations.
+- Authentication Layer: FastAPI service for User RBAC handling JWT tokens and bcrypt password hashing.
+- Presentation Layer: React/Three.js digital twin rendering 3D thermal gradients and analytics.
+
+4. MACHINE LEARNING & AI LOGIC
+--------------------------------------------------------------------------------
+Model: Unsupervised Isolation Forest (scikit-learn)
+Purpose: Detect pre-runaway signatures (voltage sags, current spikes, thermal divergence) and assign anomaly severity without labeled historical failure data.
+
+Model Mathematics:
+- Uses an ensemble of 200 isolation trees (iTrees).
+- Evaluates average path length h(x).
+- Anomaly Score s(x, n) = 2^(-E(h(x)) / c(n)).
+  - s -> 1.0 (Strong Anomaly)
+  - s -> 0.5 (Borderline/Warning)
+  - s -> 0.0 (Normal)
+
+Feature Vector (8-Dimensional):
+1. Cell surface temperature (°C)
+2. Terminal voltage (V)
+3. Discharge/Charge current (A)
+4. State of Charge (%)
+5. Normalized temperature (T_i - T_min) / (T_max - T_min)
+6. Pack mean temperature (Avg of 10 cells)
+7. Pack thermal spread (Max - Min temperature)
+8. Cell deviation from pack mean (°C)
+
+Online Learning & Retraining Lifecycle:
+- Cold-Start Bootstrap: Generates 800 synthetic safe-bound samples for immediate model readiness at Tick 0.
+- Rolling Sample Buffer: Thread-safe deque (maxlen=1000) of live operating samples.
+- Non-Blocking Retraining: Re-fits StandardScaler and IsolationForest every 50 ticks to learn pack-specific aging, seasonal ambient temp, and internal impedance drifts.
+
+5. COMPUTATIONAL FLUID DYNAMICS (CFD) THERMAL OPTIMIZATION
+--------------------------------------------------------------------------------
+The CFD engine models forced-convection laminar nanofluid flow through circular microchannels embedded within the battery pack aluminum cold plate.
+
+Coolant: Al2O3 (aluminum oxide) nanoparticle suspension in deionized water.
+Volume Fraction (φ): 0.5% - 3.0% (0.005 - 0.030)
+
+Thermophysical Property Models:
+- Effective Density (ρ_nf): Derived from mass-weighted volume mixture of Al2O3 and Water.
+- Effective Dynamic Viscosity (μ_nf): Einstein Viscosity Model.
+- Effective Thermal Conductivity (k_nf): Maxwell Dilute Suspension Model.
+
+Flow & Heat Transfer Correlations:
+- Flow Velocity (v): Computed via Reynolds Number Inversion: v = (Re * μ_nf) / (ρ_nf * D_h).
+- Nusselt Number (Nu): Graetz-Dittus-Boelter correlation for thermally developing laminar flow (Nu >= 3.66 limit).
+- Convective Heat Transfer Coefficient (h): Derived via h = (Nu * k_nf) / D_h.
+
+Dynamic Cooling Control Matrix (AI Coupled):
+- Normal (T <= 40°C, Anomaly s < 0.5): 
+  Target Re: 450 | Nanoparticle φ: 0.5% | Velocity: ~0.395 m/s | Heat Transfer: ~2450 W/m²K
+- Elevated/Hotspot (Warning, 0.5 <= s < 0.8): 
+  Target Re: 580 | Nanoparticle φ: 1.5% | Velocity: ~0.518 m/s | Heat Transfer: ~3120 W/m²K
+- Critical/Spike (T > 45°C, Anomaly s >= 0.8): 
+  Target Re: 680 | Nanoparticle φ: 3.0% | Velocity: ~0.621 m/s | Heat Transfer: ~3890 W/m²K
+
+6. SECURITY & AUTHENTICATION SPECIFICATIONS
+--------------------------------------------------------------------------------
+- RBAC (Role-Based Access Control): Distinguishes Operator (read-only diagnostics) vs Admin (override setpoints).
+- Passwords: Cryptographic salting and hashing using bcrypt (12 rounds).
+- Tokens: Stateless HMAC-SHA256 JWT Bearer tokens.
+- Protections: Anti-SQLi protections via parameterized SQLite3 execution. Defends against XSS with Pydantic field validators. Rejects none-algorithm tokens and detects signature tampering.
+
+================================================================================
+END OF SPECIFICATION
+================================================================================

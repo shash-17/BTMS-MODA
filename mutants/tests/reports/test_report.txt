@@ -1,0 +1,784 @@
+================================================================================
+           BATTERY THERMAL MANAGEMENT SYSTEM (BTMS) — TEST EXECUTION REPORT
+================================================================================
+Generated at : 2026-09-23 19:26:34
+Environment  : Python 3.12.7 | macOS Darwin
+Platform     : BTMS Microservices Quality Assurance Engine
+Total Suites : 3 (Data-Driven Testing, Keyword-Driven Testing, Synthetic Data Engine)
+Overall Status: ALL PASSED (100% PASS RATE)
+================================================================================
+
+================================================================================
+1. EXECUTIVE SUMMARY & TEST METRICS
+================================================================================
+  Test Category                  Executed    Passed    Failed    Errors    Pass Rate
+  --------------------------------------------------------------------------------
+  Data-Driven Tests (Pytest)          185       185         0         0       100.0%
+  Keyword-Driven Tests (KDT)           25        25         0         0       100.0%
+  Synthetic Data Validations          210       210         0         0       100.0%
+  --------------------------------------------------------------------------------
+  TOTAL                               420       420         0         0       100.0%
+
+================================================================================
+2. DATA-DRIVEN TESTING (DDT) EXECUTION LOG
+================================================================================
+Suite: Pytest (tests/data_driven/test_cfd_engine.py & test_ingestion.py)
+Total Test Cases: 185
+Status: ALL PASSED
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.7, pytest-9.0.2, pluggy-1.6.0 -- /opt/anaconda3/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.7', 'Platform': 'macOS-15.7.9-arm64-arm-64bit', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'metadata': '3.1.1', 'html': '4.2.0', 'asyncio': '1.3.0', 'anyio': '4.2.0'}}
+rootdir: /Users/shashanksathish/BTMS
+plugins: metadata-3.1.1, html-4.2.0, asyncio-1.3.0, anyio-4.2.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 185 items
+
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-001::All cells cool nominal 28C] PASSED [  0%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-002::All cells at 35C still normal] PASSED [  1%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-003::All cells at 38C borderline normal] PASSED [  1%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-004::All cells at exactly 40C normal] PASSED [  2%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-005::All cells at 41C triggers warning] PASSED [  2%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-006::All cells at 43C warning] PASSED [  3%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-007::All cells at 44C warning] PASSED [  3%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-008::One spike cell at 46C] PASSED [  4%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-009::All cells spike at 55C] PASSED [  4%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [  5%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [  5%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-012::9 nominal 1 spike] PASSED [  6%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [  7%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-014::Very cold pack minimum temp] PASSED [  7%]
+tests/data_driven/test_cfd_engine.py::test_cfd_severity[DDT-CFD-015::Alternating mild temperatures] PASSED [  8%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-001::All cells cool nominal 28C] PASSED [  8%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-002::All cells at 35C still normal] PASSED [  9%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-003::All cells at 38C borderline normal] PASSED [  9%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 10%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 10%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-006::All cells at 43C warning] PASSED [ 11%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-007::All cells at 44C warning] PASSED [ 11%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-008::One spike cell at 46C] PASSED [ 12%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-009::All cells spike at 55C] PASSED [ 12%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 13%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 14%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-012::9 nominal 1 spike] PASSED [ 14%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 15%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 15%]
+tests/data_driven/test_cfd_engine.py::test_cfd_concentration_key[DDT-CFD-015::Alternating mild temperatures] PASSED [ 16%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-001::All cells cool nominal 28C] PASSED [ 16%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-002::All cells at 35C still normal] PASSED [ 17%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-003::All cells at 38C borderline normal] PASSED [ 17%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 18%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 18%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-006::All cells at 43C warning] PASSED [ 19%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-007::All cells at 44C warning] PASSED [ 20%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-008::One spike cell at 46C] PASSED [ 20%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-009::All cells spike at 55C] PASSED [ 21%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 21%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 22%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-012::9 nominal 1 spike] PASSED [ 22%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 23%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 23%]
+tests/data_driven/test_cfd_engine.py::test_cfd_re_in_bounds[DDT-CFD-015::Alternating mild temperatures] PASSED [ 24%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-001::All cells cool nominal 28C] PASSED [ 24%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-002::All cells at 35C still normal] PASSED [ 25%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-003::All cells at 38C borderline normal] PASSED [ 25%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 26%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 27%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-006::All cells at 43C warning] PASSED [ 27%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-007::All cells at 44C warning] PASSED [ 28%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-008::One spike cell at 46C] PASSED [ 28%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-009::All cells spike at 55C] PASSED [ 29%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 29%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 30%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-012::9 nominal 1 spike] PASSED [ 30%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 31%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 31%]
+tests/data_driven/test_cfd_engine.py::test_cfd_flow_rate_positive[DDT-CFD-015::Alternating mild temperatures] PASSED [ 32%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-001::All cells cool nominal 28C] PASSED [ 32%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-002::All cells at 35C still normal] PASSED [ 33%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-003::All cells at 38C borderline normal] PASSED [ 34%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 34%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 35%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-006::All cells at 43C warning] PASSED [ 35%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-007::All cells at 44C warning] PASSED [ 36%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-008::One spike cell at 46C] PASSED [ 36%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-009::All cells spike at 55C] PASSED [ 37%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 37%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 38%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-012::9 nominal 1 spike] PASSED [ 38%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 39%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 40%]
+tests/data_driven/test_cfd_engine.py::test_cfd_nusselt_above_floor[DDT-CFD-015::Alternating mild temperatures] PASSED [ 40%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-001::All cells cool nominal 28C] PASSED [ 41%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-002::All cells at 35C still normal] PASSED [ 41%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-003::All cells at 38C borderline normal] PASSED [ 42%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 42%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 43%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-006::All cells at 43C warning] PASSED [ 43%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-007::All cells at 44C warning] PASSED [ 44%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-008::One spike cell at 46C] PASSED [ 44%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-009::All cells spike at 55C] PASSED [ 45%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 45%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 46%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-012::9 nominal 1 spike] PASSED [ 47%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 47%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 48%]
+tests/data_driven/test_cfd_engine.py::test_cfd_htc_positive[DDT-CFD-015::Alternating mild temperatures] PASSED [ 48%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-001::All cells cool nominal 28C] PASSED [ 49%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-002::All cells at 35C still normal] PASSED [ 49%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-003::All cells at 38C borderline normal] PASSED [ 50%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-004::All cells at exactly 40C normal] PASSED [ 50%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-005::All cells at 41C triggers warning] PASSED [ 51%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-006::All cells at 43C warning] PASSED [ 51%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-007::All cells at 44C warning] PASSED [ 52%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-008::One spike cell at 46C] PASSED [ 52%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-009::All cells spike at 55C] PASSED [ 53%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-010::Gradient pack \u0394T=18\xb0C triggers warning] PASSED [ 54%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-011::Gradient pack with one spike at 46C] PASSED [ 54%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-012::9 nominal 1 spike] PASSED [ 55%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-013::Delta-T of 4 triggers warning] PASSED [ 55%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-014::Very cold pack minimum temp] PASSED [ 56%]
+tests/data_driven/test_cfd_engine.py::test_cfd_spike_cells_correct[DDT-CFD-015::Alternating mild temperatures] PASSED [ 56%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_density_range[phi=0.5%] PASSED [ 57%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_density_range[phi=1.5%] PASSED [ 57%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_density_range[phi=3.0%] PASSED [ 58%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_viscosity_increases_with_phi[phi=0.5%] PASSED [ 58%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_viscosity_increases_with_phi[phi=1.5%] PASSED [ 59%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_viscosity_increases_with_phi[phi=3.0%] PASSED [ 60%]
+tests/data_driven/test_cfd_engine.py::test_nusselt_monotonically_increases_with_re[Re=400] PASSED [ 60%]
+tests/data_driven/test_cfd_engine.py::test_nusselt_monotonically_increases_with_re[Re=450] PASSED [ 61%]
+tests/data_driven/test_cfd_engine.py::test_nusselt_monotonically_increases_with_re[Re=500] PASSED [ 61%]
+tests/data_driven/test_cfd_engine.py::test_nusselt_monotonically_increases_with_re[Re=600] PASSED [ 62%]
+tests/data_driven/test_cfd_engine.py::test_nusselt_monotonically_increases_with_re[Re=700] PASSED [ 62%]
+tests/data_driven/test_cfd_engine.py::test_flow_velocity_increases_with_re[nominal] PASSED [ 63%]
+tests/data_driven/test_cfd_engine.py::test_flow_velocity_increases_with_re[warning] PASSED [ 63%]
+tests/data_driven/test_cfd_engine.py::test_flow_velocity_increases_with_re[critical] PASSED [ 64%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_conductivity_increases_with_phi[0.005] PASSED [ 64%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_conductivity_increases_with_phi[0.015] PASSED [ 65%]
+tests/data_driven/test_cfd_engine.py::test_nanofluid_conductivity_increases_with_phi[0.03] PASSED [ 65%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-001::Lower bound 0C maps to 0.0] PASSED [ 66%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-002::Upper bound 60C maps to 1.0] PASSED [ 67%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-003::Midpoint 30C maps to 0.5] PASSED [ 67%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-004::Quarter point 15C maps to 0.25] PASSED [ 68%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-005::Three-quarter 45C maps to 0.75] PASSED [ 68%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-006::10 percent point 6C] PASSED [ 69%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-007::90 percent point 54C] PASSED [ 69%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-008::Non-round 22.5C] PASSED [ 70%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-009::Non-round 38.4C] PASSED [ 70%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-010::Below lower bound clamped] PASSED [ 71%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-011::Above upper bound clamped] PASSED [ 71%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-012::Ambient indoor temperature] PASSED [ 72%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-013::Just above critical threshold 46C] PASSED [ 72%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-014::Near-zero temperature 1C] PASSED [ 73%]
+tests/data_driven/test_ingestion.py::test_normalisation_formula[DDT-ING-015::Near-max temperature 59.9C] PASSED [ 74%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=0] PASSED [ 74%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=5] PASSED [ 75%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=10] PASSED [ 75%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=15] PASSED [ 76%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=20] PASSED [ 76%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=25] PASSED [ 77%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=30] PASSED [ 77%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=35] PASSED [ 78%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=40] PASSED [ 78%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=45] PASSED [ 79%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=50] PASSED [ 80%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=55] PASSED [ 80%]
+tests/data_driven/test_ingestion.py::test_normalisation_always_in_unit_range[T=60] PASSED [ 81%]
+tests/data_driven/test_ingestion.py::test_normalisation_reversible[22.5] PASSED [ 81%]
+tests/data_driven/test_ingestion.py::test_normalisation_reversible[38.4] PASSED [ 82%]
+tests/data_driven/test_ingestion.py::test_normalisation_reversible[1.7] PASSED [ 82%]
+tests/data_driven/test_ingestion.py::test_normalisation_reversible[59.1] PASSED [ 83%]
+tests/data_driven/test_ingestion.py::test_normalisation_reversible[47.3] PASSED [ 83%]
+tests/data_driven/test_ingestion.py::test_enrich_adds_temperature_norm_to_all_cells[10cells@28] PASSED [ 84%]
+tests/data_driven/test_ingestion.py::test_enrich_adds_temperature_norm_to_all_cells[5cells@35] PASSED [ 84%]
+tests/data_driven/test_ingestion.py::test_enrich_adds_temperature_norm_to_all_cells[1cell@45] PASSED [ 85%]
+tests/data_driven/test_ingestion.py::test_enrich_adds_temperature_norm_to_all_cells[10cells@55] PASSED [ 85%]
+tests/data_driven/test_ingestion.py::test_enrich_norm_value_matches_formula[0C] PASSED [ 86%]
+tests/data_driven/test_ingestion.py::test_enrich_norm_value_matches_formula[15C] PASSED [ 87%]
+tests/data_driven/test_ingestion.py::test_enrich_norm_value_matches_formula[30C] PASSED [ 87%]
+tests/data_driven/test_ingestion.py::test_enrich_norm_value_matches_formula[45C] PASSED [ 88%]
+tests/data_driven/test_ingestion.py::test_enrich_norm_value_matches_formula[60C] PASSED [ 88%]
+tests/data_driven/test_ingestion.py::test_enrich_preserves_other_fields[tick=0] PASSED [ 89%]
+tests/data_driven/test_ingestion.py::test_enrich_preserves_other_fields[tick=100] PASSED [ 89%]
+tests/data_driven/test_ingestion.py::test_enrich_preserves_other_fields[tick=9999] PASSED [ 90%]
+tests/data_driven/test_ingestion.py::test_enrich_all_norms_are_finite[gradient] PASSED [ 90%]
+tests/data_driven/test_ingestion.py::test_enrich_all_norms_are_finite[uniform-cold] PASSED [ 91%]
+tests/data_driven/test_ingestion.py::test_enrich_all_norms_are_finite[uniform-spike] PASSED [ 91%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-001::Lower bound 0C maps to 0.0] PASSED [ 92%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-002::Upper bound 60C maps to 1.0] PASSED [ 92%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-003::Midpoint 30C maps to 0.5] PASSED [ 93%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-004::Quarter point 15C maps to 0.25] PASSED [ 94%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-005::Three-quarter 45C maps to 0.75] PASSED [ 94%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-006::10 percent point 6C] PASSED [ 95%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-007::90 percent point 54C] PASSED [ 95%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-008::Non-round 22.5C] PASSED [ 96%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-009::Non-round 38.4C] PASSED [ 96%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-010::Below lower bound clamped] PASSED [ 97%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-011::Above upper bound clamped] PASSED [ 97%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-012::Ambient indoor temperature] PASSED [ 98%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-013::Just above critical threshold 46C] PASSED [ 98%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-014::Near-zero temperature 1C] PASSED [ 99%]
+tests/data_driven/test_ingestion.py::test_normalisation_matches_manual_formula[DDT-ING-015::Near-max temperature 59.9C] PASSED [100%]
+
+=============================== warnings summary ===============================
+ai_engine/main.py:279
+  /Users/shashanksathish/BTMS/ai_engine/main.py:279: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+../../../opt/anaconda3/lib/python3.12/site-packages/fastapi/applications.py:4579
+  /opt/anaconda3/lib/python3.12/site-packages/fastapi/applications.py:4579: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)
+
+tests/data_driven/test_cfd_engine.py: 105 warnings
+  /Users/shashanksathish/BTMS/ai_engine/main.py:185: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp":                   datetime.utcnow().isoformat() + "Z",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================== 185 passed, 107 warnings in 2.97s =======================
+
+
+================================================================================
+3. KEYWORD-DRIVEN TESTING (KDT) EXECUTION LOG
+================================================================================
+Suite: Tabular Keyword Action Runner (tests/keyword_driven/runner.py)
+Total Action Cases: 25
+Status: ALL PASSED
+
+
+══════════════════════════════════════════════════════════════════════
+  BTMS — Keyword-Driven Test Report
+══════════════════════════════════════════════════════════════════════
+  Run at : 2026-09-23 19:26:42
+  Total  : 25 test cases
+
+Test ID        Description / Keyword                         Status   Detail
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+TC-KDT-001     Nanofluid density — low concentration (0.5%)  ✓ PASS   φ=0.5% → ρ_nf=1011.81 kg/m³  (expected [1005.0, 1020.0])
+TC-KDT-002     Nanofluid density — medium concentration (1   ✓ PASS   φ=1.5% → ρ_nf=1041.44 kg/m³  (expected [1035.0, 1055.0])
+TC-KDT-003     Nanofluid density — high concentration (3.0%) ✓ PASS   φ=3.0% → ρ_nf=1085.89 kg/m³  (expected [1075.0, 1100.0])
+TC-KDT-004     Flow velocity positive — nominal Re 450 low   ✓ PASS   Re=450.0, φ=0.5% → v=0.400802 m/s
+TC-KDT-005     Flow velocity positive — spike Re 680 high    ✓ PASS   Re=680.0, φ=3.0% → v=0.600738 m/s
+TC-KDT-006     Nusselt number above laminar floor — nominal  ✓ PASS   Re=450.0, Pr=6.5 → Nu=5.038  (min 3.66)
+TC-KDT-007     Nusselt number above laminar floor — spike Re ✓ PASS   Re=680.0, Pr=6.5 → Nu=5.575  (min 3.66)
+TC-KDT-008     CFD severity NORMAL — all cells at 28°C       ✓ PASS   Tmax=28.0°C → severity='normal'
+TC-KDT-009     CFD severity NORMAL — all cells at 35°C (bo   ✓ PASS   Tmax=35.0°C → severity='normal'
+TC-KDT-010     CFD severity WARNING — pack at 41°C           ✓ PASS   Tmax=41.0°C → severity='warning'
+TC-KDT-011     CFD severity WARNING — pack at 44°C           ✓ PASS   Tmax=44.0°C → severity='warning'
+TC-KDT-012     CFD severity CRITICAL — spike cell at 46°C    ✓ PASS   Spike cell T=46.0°C → severity='critical', spike_cells=[0]
+TC-KDT-013     CFD severity CRITICAL — spike cell at 55°C    ✓ PASS   Spike cell T=55.0°C → severity='critical', spike_cells=[0]
+TC-KDT-014     Reynolds number within bounds — normal oper   ✓ PASS   T=28.0°C → Re=450.0  (allowed [400.0, 700.0])
+TC-KDT-015     Reynolds number within bounds — warning reg   ✓ PASS   T=41.0°C → Re=550.0  (allowed [400.0, 700.0])
+TC-KDT-016     Reynolds number within bounds — critical re   ✓ PASS   T=47.0°C → Re=680.0  (allowed [400.0, 700.0])
+TC-KDT-017     Concentration key — normal → low              ✓ PASS   T=28.0°C → conc_key='low'  (expected 'low')
+TC-KDT-018     Concentration key — warning → medium          ✓ PASS   T=41.0°C → conc_key='medium'  (expected 'medium')
+TC-KDT-019     Concentration key — critical → high           ✓ PASS   T=47.0°C → conc_key='high'  (expected 'high')
+TC-KDT-020     Temperature normalisation — 0°C maps to 0.0   ✓ PASS   T=0.0°C → norm=0.000000  (expected 0.0)
+TC-KDT-021     Temperature normalisation — 60°C maps to 1.0  ✓ PASS   T=60.0°C → norm=1.000000  (expected 1.0)
+TC-KDT-022     Temperature normalisation — 30°C maps to 0.5  ✓ PASS   T=30.0°C → norm=0.500000  (expected 0.5)
+TC-KDT-023     Enrich payload adds temperature_norm field    ✓ PASS   All 10 cells have 'temperature_norm': True  (sample norm=0.5)
+TC-KDT-024     Normalised value in [0-1] — low temp 5°C      ✓ PASS   T=5.0°C → norm=0.083333  (must be in [0, 1])
+TC-KDT-025     Normalised value in [0-1] — high temp 58°C    ✓ PASS   T=58.0°C → norm=0.966667  (must be in [0, 1])
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Summary:
+  Passed : 25
+  Failed : 0
+  Errors : 0
+  Pass rate: 100.0%
+
+
+  Report saved → /Users/shashanksathish/BTMS/tests/keyword_driven/../reports/kdt_report.txt
+
+
+================================================================================
+4. AI SYNTHETIC DATA GENERATION & VALIDATION LOG
+================================================================================
+Suite: Synthetic Telemetry Verification (tests/synthetic/validate_synthetic.py)
+Total Physics & Schema Invariant Checks: 210
+Status: ALL PASSED
+
+
+═════════════════════════════════════════════════════════════════
+  BTMS — Synthetic Data Quality Validator
+═════════════════════════════════════════════════════════════════
+
+─────────────────────────────────────────────────────────────────
+  File: adversarial_20260923_182647.json
+  Strategy : adversarial
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=17.61°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=59.80°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=0.1 actual=0.1
+  ✓  provenance:temp_max                       stated=59.9 actual=59.9
+  ✓  provenance:spike_count                    stated=333 actual=333
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: adversarial_20260923_184742.json
+  Strategy : adversarial
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=17.61°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=59.80°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=0.1 actual=0.1
+  ✓  provenance:temp_max                       stated=59.9 actual=59.9
+  ✓  provenance:spike_count                    stated=333 actual=333
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: adversarial_20260923_192613.json
+  Strategy : adversarial
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=17.18°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=59.80°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=0.1 actual=0.1
+  ✓  provenance:temp_max                       stated=59.9 actual=59.9
+  ✓  provenance:spike_count                    stated=167 actual=167
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: adversarial_20260923_192642.json
+  Strategy : adversarial
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=17.18°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=59.80°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=0.1 actual=0.1
+  ✓  provenance:temp_max                       stated=59.9 actual=59.9
+  ✓  provenance:spike_count                    stated=167 actual=167
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: augmented_20260923_182647.json
+  Strategy : augmented
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=7.36°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=31.50°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=21.9739 actual=21.9739
+  ✓  provenance:temp_max                       stated=53.4779 actual=53.4779
+  ✓  provenance:spike_count                    stated=374 actual=374
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: augmented_20260923_184742.json
+  Strategy : augmented
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=7.36°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=31.50°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=21.9739 actual=21.9739
+  ✓  provenance:temp_max                       stated=53.4779 actual=53.4779
+  ✓  provenance:spike_count                    stated=374 actual=374
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: augmented_20260923_192613.json
+  Strategy : augmented
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=7.42°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=30.89°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.1715 actual=22.1715
+  ✓  provenance:temp_max                       stated=53.064 actual=53.064
+  ✓  provenance:spike_count                    stated=184 actual=184
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: augmented_20260923_192642.json
+  Strategy : augmented
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=7.42°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=30.89°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.1715 actual=22.1715
+  ✓  provenance:temp_max                       stated=53.064 actual=53.064
+  ✓  provenance:spike_count                    stated=184 actual=184
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: physics_constrained_20260923_182647.json
+  Strategy : physics_constrained
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.97°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=29.15°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=14.9023 actual=14.9023
+  ✓  provenance:temp_max                       stated=44.0554 actual=44.0554
+  ✓  provenance:spike_count                    stated=0 actual=0
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: physics_constrained_20260923_184742.json
+  Strategy : physics_constrained
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.97°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=29.15°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=14.9023 actual=14.9023
+  ✓  provenance:temp_max                       stated=44.0554 actual=44.0554
+  ✓  provenance:spike_count                    stated=0 actual=0
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: physics_constrained_20260923_192613.json
+  Strategy : physics_constrained
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.98°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=29.04°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=14.9023 actual=14.9023
+  ✓  provenance:temp_max                       stated=43.9424 actual=43.9424
+  ✓  provenance:spike_count                    stated=0 actual=0
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: physics_constrained_20260923_192642.json
+  Strategy : physics_constrained
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.98°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=29.04°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=14.9023 actual=14.9023
+  ✓  provenance:temp_max                       stated=43.9424 actual=43.9424
+  ✓  provenance:spike_count                    stated=0 actual=0
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: random_baseline_20260923_182647.json
+  Strategy : random_baseline
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=8.96°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=35.95°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.0027 actual=22.0027
+  ✓  provenance:temp_max                       stated=57.9567 actual=57.9567
+  ✓  provenance:spike_count                    stated=147 actual=147
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: random_baseline_20260923_184742.json
+  Strategy : random_baseline
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=8.96°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=35.95°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.0027 actual=22.0027
+  ✓  provenance:temp_max                       stated=57.9567 actual=57.9567
+  ✓  provenance:spike_count                    stated=147 actual=147
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: random_baseline_20260923_192613.json
+  Strategy : random_baseline
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=8.54°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=35.72°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.0829 actual=22.0829
+  ✓  provenance:temp_max                       stated=57.8061 actual=57.8061
+  ✓  provenance:spike_count                    stated=64 actual=64
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: random_baseline_20260923_192642.json
+  Strategy : random_baseline
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=8.54°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=35.72°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=22.0829 actual=22.0829
+  ✓  provenance:temp_max                       stated=57.8061 actual=57.8061
+  ✓  provenance:spike_count                    stated=64 actual=64
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: scenario_driven_20260923_182647.json
+  Strategy : scenario_driven
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=6.85°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=33.65°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=24.1276 actual=24.1276
+  ✓  provenance:temp_max                       stated=57.777 actual=57.777
+  ✓  provenance:spike_count                    stated=83 actual=83
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: scenario_driven_20260923_184742.json
+  Strategy : scenario_driven
+  Ticks    : 100  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=6.85°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=33.65°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=24.1276 actual=24.1276
+  ✓  provenance:temp_max                       stated=57.777 actual=57.777
+  ✓  provenance:spike_count                    stated=83 actual=83
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: scenario_driven_20260923_192613.json
+  Strategy : scenario_driven
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.13°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=33.25°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=24.1276 actual=24.1276
+  ✓  provenance:temp_max                       stated=57.3785 actual=57.3785
+  ✓  provenance:spike_count                    stated=10 actual=10
+
+  Result: 14/14 checks passed (100%)
+
+─────────────────────────────────────────────────────────────────
+  File: scenario_driven_20260923_192642.json
+  Strategy : scenario_driven
+  Ticks    : 50  |  Cells/tick: 10
+  Seed     : 42
+
+  ✓  schema:tick_fields                        All tick fields present
+  ✓  schema:cell_fields                        All cell fields present
+  ✓  physics:voltage                           All within limits
+  ✓  physics:current                           All within limits
+  ✓  physics:temperature                       All within limits
+  ✓  physics:soc                               All within limits
+  ✓  diversity:temp_stddev                     σ=5.13°C  (min 0.5°C expected for non-degenerate dataset)
+  ✓  diversity:temp_spread                     Tmax-Tmin=33.25°C  (min 2°C expected)
+  ✓  spike:flag_consistency                    All is_spike flags consistent with temperature
+  ✓  normalisation:correctness                 All normalised values correct
+  ✓  soc:non_negative                          All SoC values ≥ 0
+  ✓  provenance:temp_min                       stated=24.1276 actual=24.1276
+  ✓  provenance:temp_max                       stated=57.3785 actual=57.3785
+  ✓  provenance:spike_count                    stated=10 actual=10
+
+  Result: 14/14 checks passed (100%)
+
+═════════════════════════════════════════════════════════════════
+  Total: 280 passed  |  0 failed
+═════════════════════════════════════════════════════════════════
+
+
+
+================================================================================
+                              END OF TEST REPORT
+================================================================================

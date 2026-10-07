@@ -1,0 +1,327 @@
+================================================================================
+Batch: B3                         Roll No.: 16010423085
+Experiment No.: 09
+================================================================================
+
+Aim:
+To study Software Quality Management (SQM) and apply Statistical Process
+Control (SPC) techniques to the software process and defect data of the
+Battery Thermal Management System (BTMS) project.
+================================================================================
+
+
+RESOURCES USED
+--------------------------------------------------------------------------------
+- Computer System   : Apple MacBook Air (macOS Darwin, Python 3.12.7)
+- Programming Env.  : Python 3.12, flake8, pytest, matplotlib
+- Project Under QA  : Battery Thermal Management System (BTMS) — Digital Twin
+- Data Source       : BTMS source modules (simulator, ingestion, ai_engine,
+                      auth_service, dev_server) analysed with flake8
+- Visualization     : c-chart generated from real per-module defect counts
+
+
+================================================================================
+THEORY
+================================================================================
+
+Software Quality Management (SQM)
+--------------------------------------------------------------------------------
+Software Quality Management is the set of planned and systematic activities
+used to ensure that software processes and products satisfy specified quality
+requirements. It covers:
+
+  1. Quality Planning    — Define objectives, standards, metrics, and criteria.
+  2. Quality Assurance   — Monitor processes to ensure standards are followed.
+  3. Quality Control     — Examine work products to identify defects/deviations.
+  4. Measurement         — Collect quantitative data (defect counts, density,
+                           review effectiveness, effort, test results).
+  5. Process Analysis    — Study trends and variation to identify root causes.
+  6. Continuous Improvement — Introduce corrective and preventive actions.
+
+SQM in the BTMS context means not only testing the final product but building
+quality in from the start: through strict architectural separation of concerns
+(microservices), enforced parameterized SQL to prevent injection flaws,
+standardised REST contracts validated by integration tests, and a tiered
+"defense-in-depth" testing strategy applied throughout development.
+
+
+Statistical Process Control (SPC)
+--------------------------------------------------------------------------------
+SPC is a quantitative technique that monitors a process over time and
+distinguishes COMMON-CAUSE variation (inherent, predictable) from
+SPECIAL-CAUSE variation (assignable, indicating a problem).
+
+A control chart contains:
+  CL  — Central Line      : process average
+  UCL — Upper Control Limit
+  LCL — Lower Control Limit
+
+A point outside the limits, or a non-random pattern within them, signals that
+the process should be investigated.
+
+c-chart (Count of Defects per Unit)
+--------------------------------------------------------------------------------
+A c-chart is appropriate when:
+  * The inspection unit (module, sprint, build) is approximately equal in size.
+  * The data represent COUNTS of defects (not proportions).
+
+Formulae:
+  c-bar  = Sum(ci) / n
+  UCL    = c-bar + 3 * sqrt(c-bar)
+  LCL    = c-bar - 3 * sqrt(c-bar)   (set to 0 if the computed value is negative)
+
+
+================================================================================
+APPLICATION TO THE BTMS PROJECT
+================================================================================
+
+Project: Battery Thermal Management System (BTMS) — Digital Twin Platform
+Language/Stack: Python 3.12, FastAPI, Flask, React 18, Redis, SQLite
+Testing Framework: Pytest, Mutmut, Locust, Wapiti
+
+
+SQM Activities Applied in BTMS
+--------------------------------------------------------------------------------
+
+1. QUALITY PLANNING
+   - Defined quality objectives before coding:
+       * cfd_optimise() must execute in < 1.0 ms (NFR-01).
+       * /telemetry/latest API must respond in < 50 ms (NFR-01).
+       * Mutation kill rate must be 100% on critical physics targets (NFR-04).
+   - Defined acceptance criteria per module (temperature boundaries:
+     Normal < 40 deg C, Warning 40-45 deg C, Critical > 45 deg C).
+   - Assigned testing responsibility per layer (unit -> functional -> security
+     -> performance -> mutation -> DDT -> KDT -> synthetic).
+
+2. QUALITY ASSURANCE
+   - Enforced parameterized SQL queries in auth_service/main.py to prevent
+     SQL injection at the process level (not patched after the fact).
+   - Enforced bcrypt (cost=12) for password storage as a build-time standard.
+   - CORS, JWT signing (HMAC-SHA256), and input validation enforced as
+     architectural constraints before any feature testing began.
+
+3. QUALITY CONTROL
+   - 570+ test cases executed across 8 tiers.
+   - Defects detected per testing module were logged and classified.
+   - Security tests (SQL injection, JWT tampering, XSS) verified that
+     no defect of those classes could escape to production.
+
+4. MEASUREMENT (Data collected for SPC analysis below)
+   - Defects detected in each BTMS source module (flake8 static analysis)
+     were recorded. The table in the next section uses this data.
+
+5. PROCESS ANALYSIS
+   - c-chart constructed on the per-module defect count data to identify
+     whether any module exhibited special-cause variation.
+   - Boundary Value Analysis (BVA) confirmed that the exact threshold T > 45 deg C
+     is correctly enforced by mutation testing.
+
+6. CONTINUOUS IMPROVEMENT
+   - Mutation testing revealed that the original equality operator (>=) on the
+     45 deg C threshold would allow a boundary cell to be misclassified.
+     The condition was tightened to strict (>) based on this finding.
+   - Performance microbenchmarks revealed bcrypt hashing latency was close to
+     the 500 ms SLA; salting rounds were tuned accordingly.
+
+
+================================================================================
+PROCEDURE
+================================================================================
+
+Step 1 — Select the quality characteristic to monitor:
+         Number of defects detected in each BTMS source module (static
+         analysis with flake8: pyflakes errors, pycodestyle violations and
+         McCabe complexity > 10; E221 alignment ignored as it is intentional).
+
+Step 2 — Collect observations in the order the modules sit in the data flow:
+         Simulator -> Ingestion -> AI Anomaly Detector -> AI Engine (main)
+         -> Auth Service -> Dev Server.
+
+Step 3 — Enter data in Python (script: spc_btms_modules.py, which runs flake8
+         on each module and writes spc_btms_modules_data.csv).
+
+Step 4 — Calculate CL, UCL, LCL for the c-chart.
+
+Step 5 — Plot observations with CL, UCL, LCL (spc_btms_modules_chart.png).
+
+Step 6 — Check for points outside limits and non-random patterns.
+
+Step 7 — Document observations, root causes, and corrective actions.
+
+Step 8 — Prepare result printout (spc_btms_modules_report.txt).
+
+
+================================================================================
+DATA COLLECTION — DEFECTS DETECTED PER BTMS MODULE
+================================================================================
+
+  Obs  Module                File                           LOC   Defects (ci)
+  ---  --------------------  -----------------------------  ----  ------------
+   1   Simulator             simulator/simulator.py          106        2
+   2   Ingestion             ingestion/app.py                122        2
+   3   AI Anomaly Detector   ai_engine/anomaly_detector.py   392        2
+   4   AI Engine (main)      ai_engine/main.py               359        0
+   5   Auth Service          auth_service/main.py            236       18
+   6   Dev Server            dev_server.py                   259        7
+  ---  --------------------  -----------------------------  ----  ------------
+   n = 6 modules                                        Total defects = 31
+
+Defect breakdown by flake8 code:
+   Simulator           : E501 x1, F401 x1
+   Ingestion           : E302 x1, E501 x1
+   AI Anomaly Detector : E127 x1, F401 x1
+   AI Engine (main)    : none
+   Auth Service        : E302 x13, E305 x1, E501 x1, F401 x3
+   Dev Server          : E402 x4, E501 x3
+   (E302/E305 blank-line spacing, E501 line too long, E402 import not at top,
+    E127 continuation indent, F401 unused import)
+
+
+================================================================================
+SPC CALCULATIONS — c-CHART
+================================================================================
+
+Number of observations     :  n      = 6
+Total defects detected     :  Sum(ci) = 31
+
+Central Line:
+  c-bar = Sum(ci) / n = 31 / 6 = 5.17
+
+Standard deviation:
+  sqrt(c-bar) = sqrt(5.17) = 2.273
+
+Upper Control Limit:
+  UCL = c-bar + 3 * sqrt(c-bar)
+      = 5.17 + 3 * 2.273
+      = 5.17 + 6.82
+      = 11.99
+
+Lower Control Limit:
+  LCL = c-bar - 3 * sqrt(c-bar)
+      = 5.17 - 6.82
+      = -1.65  -->  LCL = 0  (negative value replaced by 0)
+
+Summary:
+  CL  = 5.17
+  UCL = 11.99
+  LCL = 0.00
+
+
+================================================================================
+c-CHART (ASCII REPRESENTATION)   [full chart: spc_btms_modules_chart.png]
+================================================================================
+
+ Defects
+    |
+  18|                                         [A] 18  <-- OUT OF CONTROL
+    |
+  16|
+    |
+  14|
+    |
+  12| - - - - - - - - - - UCL = 11.99 - - - - - - - - - - - - -
+    |
+  10|
+    |
+   8|
+    |                                                    [D] 7
+   6|
+    | ======= CL = 5.17 ===================================
+   4|
+    |
+   2|   [S] 2     [I] 2     [AD] 2
+    |
+   0| ======= LCL = 0.00 ====== [AE] 0 =====================
+    +---+---------+---------+---------+---------+---------+---
+        1         2         3         4         5         6
+    Simulator Ingestion AI-Detect  AI-Main   Auth Svc  Dev Server
+
+Observations vs Control Limits:
+  Obs 1 (Simulator)          c = 2   -> Within limits [OK]
+  Obs 2 (Ingestion)          c = 2   -> Within limits [OK]
+  Obs 3 (AI Anomaly Det.)    c = 2   -> Within limits [OK]
+  Obs 4 (AI Engine main)     c = 0   -> Within limits [OK]  <- Lowest (clean)
+  Obs 5 (Auth Service)       c = 18  -> ABOVE UCL (11.99) [OUT OF CONTROL]
+  Obs 6 (Dev Server)         c = 7   -> Within limits [OK]
+
+
+================================================================================
+INTERPRETATION & ANALYSIS
+================================================================================
+
+1. ONE OBSERVATION LIES OUTSIDE THE CONTROL LIMITS.
+   Auth Service (c = 18) exceeds UCL = 11.99. Special-cause variation is
+   present, so the BTMS code-quality process is NOT in statistical control.
+   The other five modules (c = 0 to 7) are within limits (0 to 11.99).
+
+2. AUTH SERVICE (c = 18) — SPECIAL CAUSE:
+   Of its 18 findings, 13 are E302 (functions/routes separated by one blank
+   line instead of two) and 1 is E305, i.e. the file was not auto-formatted.
+   3 are F401 unused imports (fastapi.status, pydantic.EmailStr,
+   typing.Optional) left over from development, and 1 is an over-long line.
+   None are functional bugs; they are maintainability defects, but the
+   concentration in one module shows the file escaped the formatting/lint
+   discipline applied to the others.
+
+3. LOWEST COUNT — AI Engine main (c = 0):
+   The core inference/CFD service is lint-clean, which is the most
+   safety-critical module and also the most thoroughly mutation-tested.
+
+4. DEV SERVER (c = 7, within limits but above CL):
+   4 E402 (imports not at top of file) and 3 over-long lines. Within limits,
+   but it is the second-worst module and should be watched.
+
+5. NON-RANDOM PATTERNS:
+   Longest run on one side of CL is 4 (< 7), no trend of 7 points. Apart from
+   the single out-of-limit point, no non-random pattern was found.
+
+6. LIMITATION:
+   Modules differ in size (106 to 392 LOC), so a u-chart (defects per KLOC)
+   would normalise exposure. Auth Service has 76 defects/KLOC vs 5 for the AI
+   Anomaly Detector, so the conclusion is unchanged.
+
+
+================================================================================
+SQM — CORRECTIVE AND PREVENTIVE ACTIONS
+================================================================================
+
+  Module         Defect Root Cause                 Action
+  -------------- --------------------------------- ---------------------------
+  Auth Service   Code not auto-formatted           Run black/autopep8 once;
+                 (E302 x13, E305)                  add pre-commit hook
+  Auth Service   Unused imports left after         Remove status, EmailStr,
+                 refactoring (F401 x3)             Optional; run autoflake
+  Auth Service   Line > 100 chars (E501)           Wrap the line
+  Dev Server     Imports after code (E402 x4)      Move imports to top or add
+                                                   explicit noqa where needed
+  Dev Server     Long lines (E501 x3)              Wrap lines
+  Simulator /    Unused import / long line /       Fix and enforce flake8 in CI
+  Ingestion /    spacing (1-2 each)
+  AI Detector
+  ALL            No lint gate in the workflow      Add flake8 + black --check
+                                                   to CI; re-plot c-chart per
+                                                   release to confirm control
+
+
+================================================================================
+RESULT
+================================================================================
+
+The BTMS source code quality was analysed using Statistical Process Control.
+A c-chart was constructed from static-analysis defect counts collected across
+6 actual project modules (n = 6, Sum(ci) = 31).
+
+  Central Line (CL)         : 5.17
+  Upper Control Limit (UCL) : 11.99
+  Lower Control Limit (LCL) : 0.00  (adjusted from -1.65)
+
+Five of six observations fell within the control limits. Auth Service
+(c = 18) fell above the UCL, indicating special-cause variation: the module
+was not subject to the formatting and lint discipline applied elsewhere. The
+defects are non-functional (style and unused imports), and the corrective
+actions above (auto-format, remove unused imports, lint gate in CI) should
+bring the process back into control on the next release.
+
+================================================================================
+END OF EXPERIMENT 09 REPORT
+================================================================================

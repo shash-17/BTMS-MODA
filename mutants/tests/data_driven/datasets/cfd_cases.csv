@@ -1,0 +1,16 @@
+test_id,num_cells,temperatures,expected_severity,expected_conc_key,expected_re_min,expected_re_max,description
+DDT-CFD-001,10,"28,28,28,28,28,28,28,28,28,28",normal,low,400,700,All cells cool nominal 28C
+DDT-CFD-002,10,"35,35,35,35,35,35,35,35,35,35",normal,low,400,700,All cells at 35C still normal
+DDT-CFD-003,10,"38,38,38,38,38,38,38,38,38,38",normal,low,400,700,All cells at 38C borderline normal
+DDT-CFD-004,10,"40,40,40,40,40,40,40,40,40,40",normal,low,400,700,All cells at exactly 40C normal
+DDT-CFD-005,10,"41,41,41,41,41,41,41,41,41,41",warning,medium,400,700,All cells at 41C triggers warning
+DDT-CFD-006,10,"43,43,43,43,43,43,43,43,43,43",warning,medium,400,700,All cells at 43C warning
+DDT-CFD-007,10,"44,44,44,44,44,44,44,44,44,44",warning,medium,400,700,All cells at 44C warning
+DDT-CFD-008,10,"46,28,28,28,28,28,28,28,28,28",critical,high,400,700,One spike cell at 46C
+DDT-CFD-009,10,"55,55,55,55,55,55,55,55,55,55",critical,high,400,700,All cells spike at 55C
+DDT-CFD-010,10,"22,24,26,28,30,32,34,36,38,40",warning,medium,400,700,Gradient pack ΔT=18°C triggers warning
+DDT-CFD-011,10,"28,30,32,34,36,38,40,42,44,46",critical,high,400,700,Gradient pack with one spike at 46C
+DDT-CFD-012,10,"30,30,30,30,30,30,30,30,30,46",critical,high,400,700,9 nominal 1 spike
+DDT-CFD-013,10,"40,40,40,40,40,40,40,40,40,44",warning,medium,400,700,Delta-T of 4 triggers warning
+DDT-CFD-014,10,"15,15,15,15,15,15,15,15,15,15",normal,low,400,700,Very cold pack minimum temp
+DDT-CFD-015,10,"25,26,25,26,25,26,25,26,25,26",normal,low,400,700,Alternating mild temperatures

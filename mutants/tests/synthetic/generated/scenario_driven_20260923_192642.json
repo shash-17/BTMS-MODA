@@ -1,0 +1,4968 @@
+{
+  "provenance": {
+    "strategy": "scenario_driven",
+    "description": "Named operational/fault scenarios cycling across ticks",
+    "seed": 42,
+    "num_ticks": 50,
+    "num_cells": 10,
+    "total_samples": 500,
+    "temp_min": 24.1276,
+    "temp_max": 57.3785,
+    "temp_mean": 31.6781,
+    "spike_count": 10,
+    "generated_at": "2026-09-23T13:56:42.798207+00:00",
+    "generation_ms": 2.28
+  },
+  "ticks": [
+    {
+      "tick": 0,
+      "timestamp": "2026-09-23T13:56:42.795935+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6005,
+          "current": 2.2159,
+          "temperature": 27.7839,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.463064
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6149,
+          "current": 2.527,
+          "temperature": 27.7406,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.462344
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6089,
+          "current": 2.6857,
+          "temperature": 27.833,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.463884
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6306,
+          "current": 2.6189,
+          "temperature": 29.053,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.484216
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5655,
+          "current": 2.7743,
+          "temperature": 27.8086,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.463477
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5592,
+          "current": 2.258,
+          "temperature": 25.754,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.429233
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6103,
+          "current": 2.6843,
+          "temperature": 28.4985,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.474975
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6035,
+          "current": 2.7839,
+          "temperature": 27.599,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.459983
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6052,
+          "current": 2.6976,
+          "temperature": 27.6746,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.461243
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6361,
+          "current": 2.5464,
+          "temperature": 28.1738,
+          "soc": 99.99,
+          "is_spike": false,
+          "temperature_norm": 0.469564
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 1,
+      "timestamp": "2026-09-23T13:56:42.795987+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5709,
+          "current": 2.3602,
+          "temperature": 27.8706,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.464511
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6147,
+          "current": 2.5655,
+          "temperature": 27.5592,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.459319
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6228,
+          "current": 2.298,
+          "temperature": 28.1716,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.469527
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6489,
+          "current": 2.584,
+          "temperature": 29.228,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.487133
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6183,
+          "current": 2.7057,
+          "temperature": 28.9576,
+          "soc": 99.98,
+          "is_spike": false,
+          "temperature_norm": 0.482627
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5728,
+          "current": 2.2193,
+          "temperature": 28.5248,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.475414
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5766,
+          "current": 2.3266,
+          "temperature": 28.9749,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.482915
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6375,
+          "current": 2.3888,
+          "temperature": 28.7177,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.478629
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5894,
+          "current": 2.7487,
+          "temperature": 27.0595,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.450992
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5764,
+          "current": 2.348,
+          "temperature": 26.9239,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.448732
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 2,
+      "timestamp": "2026-09-23T13:56:42.796032+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6126,
+          "current": 2.6752,
+          "temperature": 26.9148,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.44858
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5562,
+          "current": 2.429,
+          "temperature": 27.5595,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.459325
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6027,
+          "current": 2.7826,
+          "temperature": 25.2381,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.420635
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.551,
+          "current": 2.6324,
+          "temperature": 26.3763,
+          "soc": 99.97,
+          "is_spike": false,
+          "temperature_norm": 0.439605
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6035,
+          "current": 2.3601,
+          "temperature": 27.1484,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.452473
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5609,
+          "current": 2.4609,
+          "temperature": 28.6236,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.477061
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6452,
+          "current": 2.7255,
+          "temperature": 29.7902,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.496504
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5998,
+          "current": 2.3072,
+          "temperature": 27.9723,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.466205
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6368,
+          "current": 2.3791,
+          "temperature": 28.392,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.473201
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6107,
+          "current": 2.2917,
+          "temperature": 28.252,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.470866
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 3,
+      "timestamp": "2026-09-23T13:56:42.796075+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5556,
+          "current": 2.7268,
+          "temperature": 28.1467,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.469111
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5583,
+          "current": 2.4916,
+          "temperature": 26.1381,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.435634
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6259,
+          "current": 2.6595,
+          "temperature": 28.3299,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.472165
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5973,
+          "current": 2.5299,
+          "temperature": 26.1856,
+          "soc": 99.96,
+          "is_spike": false,
+          "temperature_norm": 0.436426
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.637,
+          "current": 2.4539,
+          "temperature": 29.3278,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.488797
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6037,
+          "current": 2.638,
+          "temperature": 28.0048,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.466746
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5809,
+          "current": 2.7971,
+          "temperature": 31.4251,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.523752
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5935,
+          "current": 2.5105,
+          "temperature": 28.4213,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.473688
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5722,
+          "current": 2.4029,
+          "temperature": 30.0485,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.500809
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5727,
+          "current": 2.3321,
+          "temperature": 26.0451,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.434085
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 4,
+      "timestamp": "2026-09-23T13:56:42.796118+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6068,
+          "current": 2.4836,
+          "temperature": 29.9111,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.498518
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6304,
+          "current": 2.3142,
+          "temperature": 28.9139,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.481898
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5929,
+          "current": 2.4541,
+          "temperature": 28.4298,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.47383
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6226,
+          "current": 2.604,
+          "temperature": 31.2292,
+          "soc": 99.95,
+          "is_spike": false,
+          "temperature_norm": 0.520487
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5595,
+          "current": 2.4416,
+          "temperature": 28.3656,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.472759
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6359,
+          "current": 2.3492,
+          "temperature": 27.5561,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.459268
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5946,
+          "current": 2.4531,
+          "temperature": 28.168,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.469466
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5746,
+          "current": 2.754,
+          "temperature": 30.2242,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.503736
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6358,
+          "current": 2.5302,
+          "temperature": 28.1781,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.469634
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6496,
+          "current": 2.7016,
+          "temperature": 28.7791,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.479651
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 5,
+      "timestamp": "2026-09-23T13:56:42.796162+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6281,
+          "current": 2.473,
+          "temperature": 31.3614,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.52269
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6453,
+          "current": 2.7973,
+          "temperature": 27.3368,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.455613
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6215,
+          "current": 2.2929,
+          "temperature": 28.5258,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.475429
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6466,
+          "current": 2.5475,
+          "temperature": 27.2637,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.454395
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6244,
+          "current": 2.2343,
+          "temperature": 26.964,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.449399
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5999,
+          "current": 2.7116,
+          "temperature": 28.0937,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.468229
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6458,
+          "current": 2.2481,
+          "temperature": 27.5761,
+          "soc": 99.94,
+          "is_spike": false,
+          "temperature_norm": 0.459602
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6091,
+          "current": 2.6051,
+          "temperature": 28.3037,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.471729
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5616,
+          "current": 2.7342,
+          "temperature": 24.8425,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.414041
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6091,
+          "current": 2.5716,
+          "temperature": 31.0037,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.516728
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 6,
+      "timestamp": "2026-09-23T13:56:42.796205+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6248,
+          "current": 2.2435,
+          "temperature": 26.2645,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.437742
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6494,
+          "current": 2.7977,
+          "temperature": 28.9651,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.482752
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.571,
+          "current": 2.3591,
+          "temperature": 24.5316,
+          "soc": 99.93,
+          "is_spike": false,
+          "temperature_norm": 0.40886
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6377,
+          "current": 2.7276,
+          "temperature": 27.5001,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.458335
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5653,
+          "current": 2.7002,
+          "temperature": 28.6748,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.477914
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6107,
+          "current": 2.7923,
+          "temperature": 30.283,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.504717
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5504,
+          "current": 2.6903,
+          "temperature": 28.1069,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.468449
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6159,
+          "current": 2.7634,
+          "temperature": 29.5019,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.491699
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5612,
+          "current": 2.2642,
+          "temperature": 27.4015,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.456692
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5768,
+          "current": 2.5629,
+          "temperature": 26.8834,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.448057
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 7,
+      "timestamp": "2026-09-23T13:56:42.796249+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6267,
+          "current": 2.5823,
+          "temperature": 27.7954,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.463257
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6236,
+          "current": 2.531,
+          "temperature": 27.0087,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.450146
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5506,
+          "current": 2.2451,
+          "temperature": 27.2191,
+          "soc": 99.92,
+          "is_spike": false,
+          "temperature_norm": 0.453652
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6399,
+          "current": 2.5274,
+          "temperature": 27.1228,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.452046
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6077,
+          "current": 2.2889,
+          "temperature": 24.7514,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.412523
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5803,
+          "current": 2.7394,
+          "temperature": 28.2345,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.470575
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6356,
+          "current": 2.7394,
+          "temperature": 28.3748,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.472914
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5745,
+          "current": 2.2617,
+          "temperature": 27.4566,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.45761
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6379,
+          "current": 2.4438,
+          "temperature": 26.9292,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.448821
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.565,
+          "current": 2.7579,
+          "temperature": 28.5577,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.475962
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 8,
+      "timestamp": "2026-09-23T13:56:42.796292+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5762,
+          "current": 2.6724,
+          "temperature": 30.7048,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.511746
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6367,
+          "current": 2.7152,
+          "temperature": 24.9167,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.415278
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6312,
+          "current": 2.4762,
+          "temperature": 29.1542,
+          "soc": 99.91,
+          "is_spike": false,
+          "temperature_norm": 0.485904
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.629,
+          "current": 2.3366,
+          "temperature": 25.1256,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.418759
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5687,
+          "current": 2.397,
+          "temperature": 30.4204,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.507007
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6461,
+          "current": 2.3675,
+          "temperature": 28.38,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.473
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5894,
+          "current": 2.7887,
+          "temperature": 26.2882,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.438137
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6434,
+          "current": 2.2692,
+          "temperature": 31.0149,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.516914
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5673,
+          "current": 2.7775,
+          "temperature": 28.966,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.482766
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5603,
+          "current": 2.4607,
+          "temperature": 25.1633,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.419388
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 9,
+      "timestamp": "2026-09-23T13:56:42.796335+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6214,
+          "current": 2.6452,
+          "temperature": 27.8251,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.463751
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5858,
+          "current": 2.242,
+          "temperature": 26.7103,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.445172
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5825,
+          "current": 2.3883,
+          "temperature": 26.5898,
+          "soc": 99.9,
+          "is_spike": false,
+          "temperature_norm": 0.443164
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6213,
+          "current": 2.3802,
+          "temperature": 26.8889,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.448148
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5902,
+          "current": 2.4414,
+          "temperature": 26.5233,
+          "soc": 99.88,
+          "is_spike": false,
+          "temperature_norm": 0.442054
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5621,
+          "current": 2.4523,
+          "temperature": 29.2987,
+          "soc": 99.88,
+          "is_spike": false,
+          "temperature_norm": 0.488312
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6171,
+          "current": 2.7417,
+          "temperature": 27.9301,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.465502
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5795,
+          "current": 2.5288,
+          "temperature": 30.3552,
+          "soc": 99.88,
+          "is_spike": false,
+          "temperature_norm": 0.505919
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5781,
+          "current": 2.4579,
+          "temperature": 31.419,
+          "soc": 99.88,
+          "is_spike": false,
+          "temperature_norm": 0.52365
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6149,
+          "current": 2.479,
+          "temperature": 28.0363,
+          "soc": 99.88,
+          "is_spike": false,
+          "temperature_norm": 0.467272
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 10,
+      "timestamp": "2026-09-23T13:56:42.796378+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6245,
+          "current": 2.6037,
+          "temperature": 27.0278,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.450463
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5692,
+          "current": 2.2147,
+          "temperature": 28.3697,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.472829
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.597,
+          "current": 2.7098,
+          "temperature": 24.8185,
+          "soc": 99.89,
+          "is_spike": false,
+          "temperature_norm": 0.413641
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5908,
+          "current": 2.5779,
+          "temperature": 28.5411,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.475686
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.619,
+          "current": 2.4966,
+          "temperature": 28.2609,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.471014
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6149,
+          "current": 2.2033,
+          "temperature": 27.1232,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.452054
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6263,
+          "current": 2.264,
+          "temperature": 29.5554,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.49259
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5669,
+          "current": 2.7748,
+          "temperature": 28.9172,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.481953
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5544,
+          "current": 2.3495,
+          "temperature": 27.0906,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.45151
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.595,
+          "current": 2.6808,
+          "temperature": 26.995,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.449916
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 11,
+      "timestamp": "2026-09-23T13:56:42.796422+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6236,
+          "current": 2.4848,
+          "temperature": 25.7938,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.429896
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.574,
+          "current": 2.5826,
+          "temperature": 24.1276,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.402127
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6015,
+          "current": 2.576,
+          "temperature": 24.9688,
+          "soc": 99.87,
+          "is_spike": false,
+          "temperature_norm": 0.416146
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.557,
+          "current": 2.3714,
+          "temperature": 25.9273,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.432122
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5813,
+          "current": 2.5241,
+          "temperature": 29.6035,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.493392
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5724,
+          "current": 2.6164,
+          "temperature": 26.6975,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.444958
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5556,
+          "current": 2.4446,
+          "temperature": 27.6588,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.46098
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5909,
+          "current": 2.3241,
+          "temperature": 26.2547,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.437579
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6398,
+          "current": 2.5504,
+          "temperature": 28.9164,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.48194
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6349,
+          "current": 2.6594,
+          "temperature": 26.3471,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.439118
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 12,
+      "timestamp": "2026-09-23T13:56:42.796464+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5712,
+          "current": 2.4615,
+          "temperature": 27.8808,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.46468
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5829,
+          "current": 2.6075,
+          "temperature": 28.1114,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.468523
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5658,
+          "current": 2.4804,
+          "temperature": 26.5022,
+          "soc": 99.86,
+          "is_spike": false,
+          "temperature_norm": 0.441703
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6115,
+          "current": 2.2162,
+          "temperature": 30.0144,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.50024
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6057,
+          "current": 2.2163,
+          "temperature": 30.2482,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.504136
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5628,
+          "current": 2.477,
+          "temperature": 25.0426,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.417376
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5871,
+          "current": 2.327,
+          "temperature": 25.8265,
+          "soc": 99.83,
+          "is_spike": false,
+          "temperature_norm": 0.430442
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6253,
+          "current": 2.4275,
+          "temperature": 29.2123,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.486872
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6324,
+          "current": 2.3514,
+          "temperature": 26.0455,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.434091
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5511,
+          "current": 2.5237,
+          "temperature": 27.417,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.456951
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 13,
+      "timestamp": "2026-09-23T13:56:42.796507+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6162,
+          "current": 2.5384,
+          "temperature": 29.3922,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.48987
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6192,
+          "current": 2.6601,
+          "temperature": 27.9992,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.466653
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.61,
+          "current": 2.6488,
+          "temperature": 26.4648,
+          "soc": 99.85,
+          "is_spike": false,
+          "temperature_norm": 0.44108
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6312,
+          "current": 2.7788,
+          "temperature": 25.8829,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.431382
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5518,
+          "current": 2.3872,
+          "temperature": 26.5454,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.442423
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.645,
+          "current": 2.438,
+          "temperature": 25.9508,
+          "soc": 99.83,
+          "is_spike": false,
+          "temperature_norm": 0.432513
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5567,
+          "current": 2.6144,
+          "temperature": 28.9506,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.482509
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5593,
+          "current": 2.6635,
+          "temperature": 27.6886,
+          "soc": 99.83,
+          "is_spike": false,
+          "temperature_norm": 0.461476
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6092,
+          "current": 2.2726,
+          "temperature": 28.8555,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.480925
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6274,
+          "current": 2.4083,
+          "temperature": 28.1101,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.468502
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 14,
+      "timestamp": "2026-09-23T13:56:42.796550+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5927,
+          "current": 2.6403,
+          "temperature": 26.7004,
+          "soc": 99.83,
+          "is_spike": false,
+          "temperature_norm": 0.445006
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5761,
+          "current": 2.6849,
+          "temperature": 28.6278,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.47713
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5976,
+          "current": 2.4613,
+          "temperature": 26.6305,
+          "soc": 99.84,
+          "is_spike": false,
+          "temperature_norm": 0.443841
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.576,
+          "current": 2.711,
+          "temperature": 27.9487,
+          "soc": 99.83,
+          "is_spike": false,
+          "temperature_norm": 0.465811
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5578,
+          "current": 2.729,
+          "temperature": 29.633,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.493883
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5956,
+          "current": 2.5662,
+          "temperature": 25.7398,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.428996
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5519,
+          "current": 2.7106,
+          "temperature": 31.0086,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.51681
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5703,
+          "current": 2.6787,
+          "temperature": 30.3501,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.505834
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6371,
+          "current": 2.6207,
+          "temperature": 26.1444,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.43574
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5501,
+          "current": 2.7688,
+          "temperature": 25.8795,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.431326
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 15,
+      "timestamp": "2026-09-23T13:56:42.796596+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5797,
+          "current": 2.5489,
+          "temperature": 30.0556,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.500927
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6021,
+          "current": 2.4553,
+          "temperature": 29.2264,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.487107
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5822,
+          "current": 2.6217,
+          "temperature": 25.4791,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.424652
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5742,
+          "current": 2.2724,
+          "temperature": 28.1812,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.469687
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.561,
+          "current": 2.5215,
+          "temperature": 27.212,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.453534
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5675,
+          "current": 2.3298,
+          "temperature": 25.9873,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.433122
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6214,
+          "current": 2.786,
+          "temperature": 25.3424,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.422374
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5773,
+          "current": 2.2603,
+          "temperature": 28.1534,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.469224
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5718,
+          "current": 2.3077,
+          "temperature": 28.8854,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.481423
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6024,
+          "current": 2.3646,
+          "temperature": 28.586,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.476433
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 16,
+      "timestamp": "2026-09-23T13:56:42.796640+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5541,
+          "current": 2.7646,
+          "temperature": 29.8797,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.497995
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6312,
+          "current": 2.4404,
+          "temperature": 27.6937,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.461562
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.612,
+          "current": 2.2322,
+          "temperature": 27.7472,
+          "soc": 99.82,
+          "is_spike": false,
+          "temperature_norm": 0.462453
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6053,
+          "current": 2.3823,
+          "temperature": 27.2627,
+          "soc": 99.81,
+          "is_spike": false,
+          "temperature_norm": 0.454379
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5608,
+          "current": 2.6587,
+          "temperature": 29.1808,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.486346
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.628,
+          "current": 2.3354,
+          "temperature": 26.718,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.4453
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.594,
+          "current": 2.4656,
+          "temperature": 29.3658,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.489429
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.648,
+          "current": 2.3832,
+          "temperature": 26.5945,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.443242
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6099,
+          "current": 2.6441,
+          "temperature": 26.4133,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.440222
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5697,
+          "current": 2.3266,
+          "temperature": 28.3089,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.471815
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 17,
+      "timestamp": "2026-09-23T13:56:42.796683+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5943,
+          "current": 2.6124,
+          "temperature": 27.5322,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.458869
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6277,
+          "current": 2.575,
+          "temperature": 27.2584,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.454307
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6424,
+          "current": 2.4551,
+          "temperature": 28.273,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.471216
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6138,
+          "current": 2.745,
+          "temperature": 28.526,
+          "soc": 99.8,
+          "is_spike": false,
+          "temperature_norm": 0.475433
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.556,
+          "current": 2.2996,
+          "temperature": 29.6412,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.49402
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6238,
+          "current": 2.5415,
+          "temperature": 28.0276,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.467127
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5613,
+          "current": 2.6132,
+          "temperature": 26.9654,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.449423
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6432,
+          "current": 2.5003,
+          "temperature": 27.3081,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.455135
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5569,
+          "current": 2.2239,
+          "temperature": 28.2729,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.471215
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5811,
+          "current": 2.3502,
+          "temperature": 30.3343,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.505572
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 18,
+      "timestamp": "2026-09-23T13:56:42.796727+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.614,
+          "current": 2.7496,
+          "temperature": 31.2205,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.520342
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6074,
+          "current": 2.5809,
+          "temperature": 30.0817,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.501361
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5581,
+          "current": 2.4088,
+          "temperature": 29.0093,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.483488
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.616,
+          "current": 2.7146,
+          "temperature": 26.3166,
+          "soc": 99.79,
+          "is_spike": false,
+          "temperature_norm": 0.43861
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6182,
+          "current": 2.3729,
+          "temperature": 33.6281,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.560468
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6302,
+          "current": 2.5301,
+          "temperature": 26.202,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.4367
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5803,
+          "current": 2.394,
+          "temperature": 27.4423,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.457372
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5892,
+          "current": 2.5088,
+          "temperature": 26.9502,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.449169
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6146,
+          "current": 2.5256,
+          "temperature": 30.4403,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.507339
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5676,
+          "current": 2.4171,
+          "temperature": 28.6304,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.477173
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 19,
+      "timestamp": "2026-09-23T13:56:42.796773+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5727,
+          "current": 2.295,
+          "temperature": 28.0851,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.468085
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.604,
+          "current": 2.2559,
+          "temperature": 25.8997,
+          "soc": 99.76,
+          "is_spike": false,
+          "temperature_norm": 0.431661
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6401,
+          "current": 2.4769,
+          "temperature": 28.0635,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.467725
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6321,
+          "current": 2.499,
+          "temperature": 26.99,
+          "soc": 99.78,
+          "is_spike": false,
+          "temperature_norm": 0.449833
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5997,
+          "current": 2.3641,
+          "temperature": 24.7251,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.412086
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6468,
+          "current": 2.3462,
+          "temperature": 26.9537,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.449228
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5871,
+          "current": 2.7531,
+          "temperature": 25.8513,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.430855
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6367,
+          "current": 2.7184,
+          "temperature": 28.8803,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.481338
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6277,
+          "current": 2.449,
+          "temperature": 30.9162,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.515271
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5995,
+          "current": 2.6923,
+          "temperature": 30.7881,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.513136
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "nominal"
+    },
+    {
+      "tick": 20,
+      "timestamp": "2026-09-23T13:56:42.796834+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5809,
+          "current": 2.3132,
+          "temperature": 29.8275,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.497124
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6059,
+          "current": 2.3401,
+          "temperature": 32.0243,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.533738
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5531,
+          "current": 2.6468,
+          "temperature": 29.2455,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.487424
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.63,
+          "current": 2.4316,
+          "temperature": 31.6822,
+          "soc": 99.77,
+          "is_spike": false,
+          "temperature_norm": 0.528037
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6308,
+          "current": 2.7885,
+          "temperature": 34.234,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.570566
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5524,
+          "current": 2.5014,
+          "temperature": 36.0369,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.600615
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6356,
+          "current": 2.7245,
+          "temperature": 36.3068,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.605113
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6013,
+          "current": 2.4742,
+          "temperature": 38.1791,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.636319
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5897,
+          "current": 2.5929,
+          "temperature": 38.4138,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.64023
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5956,
+          "current": 2.7815,
+          "temperature": 40.3987,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.673312
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 21,
+      "timestamp": "2026-09-23T13:56:42.796878+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5522,
+          "current": 2.2411,
+          "temperature": 29.1886,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.486477
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6407,
+          "current": 2.7985,
+          "temperature": 32.5044,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.541741
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5921,
+          "current": 2.2591,
+          "temperature": 31.2499,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.520831
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.636,
+          "current": 2.4662,
+          "temperature": 32.0204,
+          "soc": 99.75,
+          "is_spike": false,
+          "temperature_norm": 0.533673
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.639,
+          "current": 2.2276,
+          "temperature": 35.9876,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.599794
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5779,
+          "current": 2.4249,
+          "temperature": 34.4149,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.573582
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6018,
+          "current": 2.5396,
+          "temperature": 36.5638,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.609397
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5656,
+          "current": 2.2474,
+          "temperature": 38.9973,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.649956
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6105,
+          "current": 2.3445,
+          "temperature": 39.2704,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.654506
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5629,
+          "current": 2.4767,
+          "temperature": 39.1445,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.652409
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 22,
+      "timestamp": "2026-09-23T13:56:42.796921+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.591,
+          "current": 2.3501,
+          "temperature": 29.9808,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.49968
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5685,
+          "current": 2.4308,
+          "temperature": 31.9676,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.532794
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5724,
+          "current": 2.5432,
+          "temperature": 34.204,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.570066
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.648,
+          "current": 2.3771,
+          "temperature": 33.7066,
+          "soc": 99.74,
+          "is_spike": false,
+          "temperature_norm": 0.561777
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6143,
+          "current": 2.3647,
+          "temperature": 36.024,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.6004
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6171,
+          "current": 2.6468,
+          "temperature": 35.1249,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.585414
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6092,
+          "current": 2.498,
+          "temperature": 37.7901,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.629835
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5771,
+          "current": 2.6793,
+          "temperature": 39.3042,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.65507
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5837,
+          "current": 2.582,
+          "temperature": 38.848,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.647467
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6163,
+          "current": 2.6326,
+          "temperature": 41.8981,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.698302
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 23,
+      "timestamp": "2026-09-23T13:56:42.796966+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6233,
+          "current": 2.3054,
+          "temperature": 28.9688,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.482813
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6025,
+          "current": 2.7829,
+          "temperature": 29.5934,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.493224
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6399,
+          "current": 2.6983,
+          "temperature": 30.9027,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.515045
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6311,
+          "current": 2.4891,
+          "temperature": 32.0403,
+          "soc": 99.73,
+          "is_spike": false,
+          "temperature_norm": 0.534005
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6231,
+          "current": 2.4032,
+          "temperature": 34.2788,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.571314
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6448,
+          "current": 2.2845,
+          "temperature": 35.3163,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.588605
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6345,
+          "current": 2.6345,
+          "temperature": 35.9735,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.599559
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6451,
+          "current": 2.6828,
+          "temperature": 38.8783,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.647971
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6275,
+          "current": 2.2084,
+          "temperature": 39.5519,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.659199
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5939,
+          "current": 2.6037,
+          "temperature": 40.368,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.6728
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 24,
+      "timestamp": "2026-09-23T13:56:42.797010+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5548,
+          "current": 2.6943,
+          "temperature": 29.3786,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.489643
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5786,
+          "current": 2.445,
+          "temperature": 30.0292,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.500487
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6432,
+          "current": 2.3826,
+          "temperature": 33.4434,
+          "soc": 99.71,
+          "is_spike": false,
+          "temperature_norm": 0.55739
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5583,
+          "current": 2.7324,
+          "temperature": 31.4674,
+          "soc": 99.72,
+          "is_spike": false,
+          "temperature_norm": 0.524457
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5938,
+          "current": 2.6023,
+          "temperature": 35.3672,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.589453
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.643,
+          "current": 2.4515,
+          "temperature": 36.4594,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.607656
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5639,
+          "current": 2.4489,
+          "temperature": 39.251,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.654184
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5973,
+          "current": 2.4449,
+          "temperature": 38.7252,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.64542
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5516,
+          "current": 2.4223,
+          "temperature": 37.5416,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.625693
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6435,
+          "current": 2.7133,
+          "temperature": 39.9639,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.666065
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 25,
+      "timestamp": "2026-09-23T13:56:42.797064+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6126,
+          "current": 2.5583,
+          "temperature": 31.2345,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.520574
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6271,
+          "current": 2.3461,
+          "temperature": 32.0893,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.534821
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.605,
+          "current": 2.2412,
+          "temperature": 29.7467,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.495779
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5692,
+          "current": 2.3296,
+          "temperature": 32.8388,
+          "soc": 99.7,
+          "is_spike": false,
+          "temperature_norm": 0.547313
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5812,
+          "current": 2.2885,
+          "temperature": 34.1642,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.569403
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5486,
+          "current": 2.715,
+          "temperature": 36.7818,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.61303
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5614,
+          "current": 2.3504,
+          "temperature": 37.3885,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.623141
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6144,
+          "current": 2.2155,
+          "temperature": 38.8744,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.647907
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6273,
+          "current": 2.3428,
+          "temperature": 40.2363,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.670605
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5658,
+          "current": 2.2314,
+          "temperature": 39.9011,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.665018
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 26,
+      "timestamp": "2026-09-23T13:56:42.797108+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.635,
+          "current": 2.5129,
+          "temperature": 29.9364,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.498941
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6447,
+          "current": 2.2365,
+          "temperature": 29.9796,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.49966
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5886,
+          "current": 2.6117,
+          "temperature": 32.369,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.539484
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6394,
+          "current": 2.2441,
+          "temperature": 32.4631,
+          "soc": 99.69,
+          "is_spike": false,
+          "temperature_norm": 0.541052
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6091,
+          "current": 2.2394,
+          "temperature": 35.0102,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.583503
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6116,
+          "current": 2.529,
+          "temperature": 34.8186,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.580309
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6478,
+          "current": 2.5183,
+          "temperature": 38.1167,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.635278
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6088,
+          "current": 2.2595,
+          "temperature": 39.1492,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.652487
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6335,
+          "current": 2.5905,
+          "temperature": 39.8804,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.664674
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6204,
+          "current": 2.329,
+          "temperature": 40.6999,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.678331
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 27,
+      "timestamp": "2026-09-23T13:56:42.797151+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.555,
+          "current": 2.6991,
+          "temperature": 29.3128,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.488547
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.558,
+          "current": 2.6433,
+          "temperature": 31.4159,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.523598
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.604,
+          "current": 2.5519,
+          "temperature": 31.8172,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.530287
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5813,
+          "current": 2.2733,
+          "temperature": 34.5321,
+          "soc": 99.68,
+          "is_spike": false,
+          "temperature_norm": 0.575535
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6148,
+          "current": 2.6502,
+          "temperature": 34.4138,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.573564
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6203,
+          "current": 2.781,
+          "temperature": 36.2252,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.603753
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5834,
+          "current": 2.5468,
+          "temperature": 35.8747,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.597912
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6139,
+          "current": 2.3345,
+          "temperature": 39.0569,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.650948
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6328,
+          "current": 2.4205,
+          "temperature": 39.1948,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.653247
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6056,
+          "current": 2.6843,
+          "temperature": 41.2088,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.686813
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 28,
+      "timestamp": "2026-09-23T13:56:42.797205+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5791,
+          "current": 2.4039,
+          "temperature": 31.5252,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.52542
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6353,
+          "current": 2.5398,
+          "temperature": 28.9604,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.482674
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5625,
+          "current": 2.5799,
+          "temperature": 32.9748,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.54958
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.623,
+          "current": 2.3291,
+          "temperature": 32.3465,
+          "soc": 99.67,
+          "is_spike": false,
+          "temperature_norm": 0.539108
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5823,
+          "current": 2.422,
+          "temperature": 34.656,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.5776
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6258,
+          "current": 2.5406,
+          "temperature": 35.8198,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.596997
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5535,
+          "current": 2.2944,
+          "temperature": 38.8972,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.648287
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6155,
+          "current": 2.3633,
+          "temperature": 37.5894,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.62649
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5967,
+          "current": 2.4652,
+          "temperature": 39.531,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.65885
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6236,
+          "current": 2.2683,
+          "temperature": 41.427,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.69045
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 29,
+      "timestamp": "2026-09-23T13:56:42.797249+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5618,
+          "current": 2.3533,
+          "temperature": 29.2617,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.487696
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.549,
+          "current": 2.6482,
+          "temperature": 31.5479,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.525798
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5863,
+          "current": 2.6222,
+          "temperature": 31.8984,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.53164
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6316,
+          "current": 2.6837,
+          "temperature": 32.5598,
+          "soc": 99.66,
+          "is_spike": false,
+          "temperature_norm": 0.542664
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6343,
+          "current": 2.2254,
+          "temperature": 34.6483,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.577472
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6402,
+          "current": 2.7173,
+          "temperature": 35.7355,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.595592
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6055,
+          "current": 2.6257,
+          "temperature": 36.13,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.602166
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5596,
+          "current": 2.2125,
+          "temperature": 39.2272,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.653786
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6282,
+          "current": 2.5709,
+          "temperature": 40.446,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.6741
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.64,
+          "current": 2.2529,
+          "temperature": 40.8409,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.680682
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 30,
+      "timestamp": "2026-09-23T13:56:42.797292+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5991,
+          "current": 2.7436,
+          "temperature": 30.4177,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.506962
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6209,
+          "current": 2.6914,
+          "temperature": 30.581,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.509684
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5718,
+          "current": 2.2879,
+          "temperature": 31.3667,
+          "soc": 99.63,
+          "is_spike": false,
+          "temperature_norm": 0.522778
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6085,
+          "current": 2.6561,
+          "temperature": 32.9545,
+          "soc": 99.65,
+          "is_spike": false,
+          "temperature_norm": 0.549241
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5658,
+          "current": 2.6637,
+          "temperature": 34.1164,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.568607
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6234,
+          "current": 2.6559,
+          "temperature": 36.525,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.60875
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6405,
+          "current": 2.5387,
+          "temperature": 36.72,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.612001
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6105,
+          "current": 2.7185,
+          "temperature": 39.1614,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.652691
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5631,
+          "current": 2.241,
+          "temperature": 40.1881,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.669801
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5783,
+          "current": 2.3648,
+          "temperature": 41.8406,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.697343
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 31,
+      "timestamp": "2026-09-23T13:56:42.797336+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5943,
+          "current": 2.5326,
+          "temperature": 31.1166,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.518609
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6377,
+          "current": 2.4698,
+          "temperature": 31.6113,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.526855
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6133,
+          "current": 2.3929,
+          "temperature": 31.9937,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.533228
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5633,
+          "current": 2.2371,
+          "temperature": 34.6186,
+          "soc": 99.64,
+          "is_spike": false,
+          "temperature_norm": 0.576977
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6379,
+          "current": 2.4061,
+          "temperature": 36.5685,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.609475
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5984,
+          "current": 2.3035,
+          "temperature": 36.6605,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.611009
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5918,
+          "current": 2.4637,
+          "temperature": 38.9707,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.649511
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5638,
+          "current": 2.4237,
+          "temperature": 39.3266,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.655443
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5889,
+          "current": 2.403,
+          "temperature": 40.4489,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.674148
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6269,
+          "current": 2.5884,
+          "temperature": 39.7098,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.66183
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 32,
+      "timestamp": "2026-09-23T13:56:42.797380+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.583,
+          "current": 2.7806,
+          "temperature": 30.4079,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.506799
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5872,
+          "current": 2.557,
+          "temperature": 31.3793,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.522988
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5789,
+          "current": 2.426,
+          "temperature": 32.0443,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.534072
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6294,
+          "current": 2.6021,
+          "temperature": 32.8637,
+          "soc": 99.62,
+          "is_spike": false,
+          "temperature_norm": 0.547729
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6218,
+          "current": 2.6112,
+          "temperature": 34.5598,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.575997
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6125,
+          "current": 2.454,
+          "temperature": 34.5578,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.575964
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5843,
+          "current": 2.3082,
+          "temperature": 38.8907,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.648179
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6427,
+          "current": 2.4918,
+          "temperature": 37.2717,
+          "soc": 99.58,
+          "is_spike": false,
+          "temperature_norm": 0.621195
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5617,
+          "current": 2.2463,
+          "temperature": 38.9387,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.648979
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.558,
+          "current": 2.6625,
+          "temperature": 41.9449,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.699082
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 33,
+      "timestamp": "2026-09-23T13:56:42.797424+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5645,
+          "current": 2.4626,
+          "temperature": 31.0573,
+          "soc": 99.58,
+          "is_spike": false,
+          "temperature_norm": 0.517621
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6156,
+          "current": 2.3425,
+          "temperature": 29.4153,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.490255
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5764,
+          "current": 2.6491,
+          "temperature": 33.2809,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.554681
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6014,
+          "current": 2.3857,
+          "temperature": 33.8129,
+          "soc": 99.61,
+          "is_spike": false,
+          "temperature_norm": 0.563549
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5948,
+          "current": 2.7011,
+          "temperature": 34.8542,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.580904
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6425,
+          "current": 2.7907,
+          "temperature": 35.4727,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.591212
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5761,
+          "current": 2.4291,
+          "temperature": 36.7747,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.612912
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6445,
+          "current": 2.6901,
+          "temperature": 38.8162,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.646936
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5617,
+          "current": 2.35,
+          "temperature": 40.44,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.674
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6352,
+          "current": 2.5327,
+          "temperature": 39.3022,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.655037
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 34,
+      "timestamp": "2026-09-23T13:56:42.797467+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.593,
+          "current": 2.4098,
+          "temperature": 31.5459,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.525765
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5533,
+          "current": 2.5012,
+          "temperature": 32.3621,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.539368
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6473,
+          "current": 2.4249,
+          "temperature": 32.8864,
+          "soc": 99.58,
+          "is_spike": false,
+          "temperature_norm": 0.548106
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6411,
+          "current": 2.7035,
+          "temperature": 32.9408,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.549013
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6269,
+          "current": 2.2826,
+          "temperature": 34.8657,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.581095
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6307,
+          "current": 2.6176,
+          "temperature": 35.2045,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.586742
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6185,
+          "current": 2.4692,
+          "temperature": 37.6676,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.627793
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5557,
+          "current": 2.3536,
+          "temperature": 38.0835,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.634725
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6026,
+          "current": 2.6363,
+          "temperature": 37.365,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.622751
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5588,
+          "current": 2.3729,
+          "temperature": 41.7262,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.695437
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 35,
+      "timestamp": "2026-09-23T13:56:42.797510+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5622,
+          "current": 2.4575,
+          "temperature": 29.9012,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.498353
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5719,
+          "current": 2.4499,
+          "temperature": 31.4968,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.524947
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5564,
+          "current": 2.7848,
+          "temperature": 30.8435,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.514058
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6006,
+          "current": 2.5044,
+          "temperature": 34.4579,
+          "soc": 99.6,
+          "is_spike": false,
+          "temperature_norm": 0.574299
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6031,
+          "current": 2.4343,
+          "temperature": 34.3327,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.572212
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6113,
+          "current": 2.7886,
+          "temperature": 36.1291,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.602151
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5495,
+          "current": 2.6731,
+          "temperature": 38.3154,
+          "soc": 99.58,
+          "is_spike": false,
+          "temperature_norm": 0.638589
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6211,
+          "current": 2.577,
+          "temperature": 37.6435,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.627392
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6212,
+          "current": 2.3995,
+          "temperature": 40.7972,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.679954
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6023,
+          "current": 2.6881,
+          "temperature": 40.9241,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.682068
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 36,
+      "timestamp": "2026-09-23T13:56:42.797557+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5677,
+          "current": 2.2251,
+          "temperature": 30.7881,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.513136
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5993,
+          "current": 2.7935,
+          "temperature": 32.749,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.545816
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5731,
+          "current": 2.652,
+          "temperature": 30.896,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.514934
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5836,
+          "current": 2.6685,
+          "temperature": 33.9399,
+          "soc": 99.59,
+          "is_spike": false,
+          "temperature_norm": 0.565665
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5808,
+          "current": 2.2747,
+          "temperature": 33.5641,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.559401
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6366,
+          "current": 2.646,
+          "temperature": 34.6547,
+          "soc": 99.53,
+          "is_spike": false,
+          "temperature_norm": 0.577579
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5865,
+          "current": 2.7842,
+          "temperature": 38.7961,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.646601
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5975,
+          "current": 2.7546,
+          "temperature": 39.0682,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.651136
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6277,
+          "current": 2.6362,
+          "temperature": 38.7958,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.646597
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6079,
+          "current": 2.6934,
+          "temperature": 41.019,
+          "soc": 99.53,
+          "is_spike": false,
+          "temperature_norm": 0.68365
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 37,
+      "timestamp": "2026-09-23T13:56:42.797609+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.583,
+          "current": 2.7989,
+          "temperature": 29.1554,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.485923
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6457,
+          "current": 2.7687,
+          "temperature": 30.9519,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.515865
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6115,
+          "current": 2.418,
+          "temperature": 33.6885,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.561475
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6158,
+          "current": 2.7717,
+          "temperature": 34.3091,
+          "soc": 99.57,
+          "is_spike": false,
+          "temperature_norm": 0.571818
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6083,
+          "current": 2.6688,
+          "temperature": 34.3278,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.57213
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5543,
+          "current": 2.6671,
+          "temperature": 37.2739,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.621231
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.586,
+          "current": 2.5403,
+          "temperature": 35.8319,
+          "soc": 99.55,
+          "is_spike": false,
+          "temperature_norm": 0.597199
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6155,
+          "current": 2.7693,
+          "temperature": 39.085,
+          "soc": 99.53,
+          "is_spike": false,
+          "temperature_norm": 0.651417
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6239,
+          "current": 2.5444,
+          "temperature": 39.4248,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.657079
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5874,
+          "current": 2.5897,
+          "temperature": 41.0363,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.683939
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 38,
+      "timestamp": "2026-09-23T13:56:42.797660+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6393,
+          "current": 2.4947,
+          "temperature": 30.0012,
+          "soc": 99.53,
+          "is_spike": false,
+          "temperature_norm": 0.50002
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.633,
+          "current": 2.4712,
+          "temperature": 31.6907,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.528179
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5921,
+          "current": 2.2527,
+          "temperature": 32.2943,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.538239
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6323,
+          "current": 2.3918,
+          "temperature": 32.429,
+          "soc": 99.56,
+          "is_spike": false,
+          "temperature_norm": 0.540483
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.554,
+          "current": 2.5253,
+          "temperature": 33.8261,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.563768
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6327,
+          "current": 2.6271,
+          "temperature": 36.8373,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.613954
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6114,
+          "current": 2.6762,
+          "temperature": 37.1426,
+          "soc": 99.53,
+          "is_spike": false,
+          "temperature_norm": 0.619043
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5597,
+          "current": 2.3206,
+          "temperature": 39.1744,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.652907
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6266,
+          "current": 2.2158,
+          "temperature": 36.4374,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.60729
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5844,
+          "current": 2.6822,
+          "temperature": 41.9101,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.698502
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 39,
+      "timestamp": "2026-09-23T13:56:42.797704+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6118,
+          "current": 2.47,
+          "temperature": 28.6959,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.478264
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5821,
+          "current": 2.7268,
+          "temperature": 30.7613,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.512688
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6115,
+          "current": 2.3092,
+          "temperature": 33.1371,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.552285
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5909,
+          "current": 2.7464,
+          "temperature": 34.0436,
+          "soc": 99.54,
+          "is_spike": false,
+          "temperature_norm": 0.567393
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5599,
+          "current": 2.2918,
+          "temperature": 36.3931,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.606551
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5798,
+          "current": 2.6256,
+          "temperature": 35.9959,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.599932
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6417,
+          "current": 2.737,
+          "temperature": 35.5099,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.591832
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5725,
+          "current": 2.581,
+          "temperature": 38.1247,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.635412
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.56,
+          "current": 2.3817,
+          "temperature": 39.7741,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.662901
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5977,
+          "current": 2.3012,
+          "temperature": 40.4494,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.674157
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "warm_up"
+    },
+    {
+      "tick": 40,
+      "timestamp": "2026-09-23T13:56:42.797755+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6047,
+          "current": 2.5709,
+          "temperature": 30.8103,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.513505
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6365,
+          "current": 2.5273,
+          "temperature": 29.6886,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.49481
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5777,
+          "current": 2.3469,
+          "temperature": 28.7004,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.478339
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5882,
+          "current": 2.4721,
+          "temperature": 27.9877,
+          "soc": 99.52,
+          "is_spike": false,
+          "temperature_norm": 0.466461
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5632,
+          "current": 2.4494,
+          "temperature": 27.7226,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.462044
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5815,
+          "current": 2.2862,
+          "temperature": 28.2303,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.470505
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5794,
+          "current": 2.7928,
+          "temperature": 27.4192,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.456986
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5873,
+          "current": 2.6564,
+          "temperature": 28.9097,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.481828
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.558,
+          "current": 2.345,
+          "temperature": 30.4503,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.507505
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5924,
+          "current": 2.2845,
+          "temperature": 49.1759,
+          "soc": 99.48,
+          "is_spike": true,
+          "temperature_norm": 0.819598
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 41,
+      "timestamp": "2026-09-23T13:56:42.797802+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5973,
+          "current": 2.3851,
+          "temperature": 33.4358,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.557263
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6421,
+          "current": 2.5033,
+          "temperature": 31.1308,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.518847
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5689,
+          "current": 2.4117,
+          "temperature": 51.9792,
+          "soc": 99.47,
+          "is_spike": true,
+          "temperature_norm": 0.86632
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5971,
+          "current": 2.7294,
+          "temperature": 28.8236,
+          "soc": 99.51,
+          "is_spike": false,
+          "temperature_norm": 0.480394
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5944,
+          "current": 2.522,
+          "temperature": 33.1467,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.552446
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5904,
+          "current": 2.7295,
+          "temperature": 29.2484,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.487474
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6238,
+          "current": 2.4196,
+          "temperature": 31.3573,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.522621
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6044,
+          "current": 2.3168,
+          "temperature": 26.7794,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.446323
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5547,
+          "current": 2.5026,
+          "temperature": 29.8244,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.497073
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5753,
+          "current": 2.7935,
+          "temperature": 29.0427,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.484044
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 42,
+      "timestamp": "2026-09-23T13:56:42.797847+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6188,
+          "current": 2.6824,
+          "temperature": 29.6805,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.494675
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5624,
+          "current": 2.7359,
+          "temperature": 29.3166,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.488609
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6405,
+          "current": 2.3911,
+          "temperature": 31.4827,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.524712
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6092,
+          "current": 2.7056,
+          "temperature": 29.766,
+          "soc": 99.5,
+          "is_spike": false,
+          "temperature_norm": 0.496099
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.598,
+          "current": 2.5058,
+          "temperature": 30.38,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.506334
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6036,
+          "current": 2.4849,
+          "temperature": 28.6888,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.478147
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5805,
+          "current": 2.2658,
+          "temperature": 32.3328,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.538881
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5781,
+          "current": 2.7393,
+          "temperature": 29.0585,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.484308
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6102,
+          "current": 2.5581,
+          "temperature": 46.4831,
+          "soc": 99.45,
+          "is_spike": true,
+          "temperature_norm": 0.774718
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6128,
+          "current": 2.7832,
+          "temperature": 31.6985,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.528309
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 43,
+      "timestamp": "2026-09-23T13:56:42.797891+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5493,
+          "current": 2.3882,
+          "temperature": 29.0505,
+          "soc": 99.48,
+          "is_spike": false,
+          "temperature_norm": 0.484175
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6165,
+          "current": 2.4462,
+          "temperature": 29.4898,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.491497
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6393,
+          "current": 2.7237,
+          "temperature": 31.628,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.527133
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5537,
+          "current": 2.2828,
+          "temperature": 30.5443,
+          "soc": 99.49,
+          "is_spike": false,
+          "temperature_norm": 0.509072
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5797,
+          "current": 2.5973,
+          "temperature": 27.6304,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.460506
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5786,
+          "current": 2.3039,
+          "temperature": 29.6364,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.49394
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5815,
+          "current": 2.4126,
+          "temperature": 30.2259,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.503765
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.6193,
+          "current": 2.586,
+          "temperature": 28.5503,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.475839
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6082,
+          "current": 2.3154,
+          "temperature": 30.4862,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.508103
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.6031,
+          "current": 2.3349,
+          "temperature": 57.3785,
+          "soc": 99.45,
+          "is_spike": true,
+          "temperature_norm": 0.956308
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 44,
+      "timestamp": "2026-09-23T13:56:42.797934+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6369,
+          "current": 2.4367,
+          "temperature": 31.2426,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.52071
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6247,
+          "current": 2.2879,
+          "temperature": 52.8817,
+          "soc": 99.48,
+          "is_spike": true,
+          "temperature_norm": 0.881362
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6428,
+          "current": 2.2474,
+          "temperature": 29.7519,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.495866
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6129,
+          "current": 2.6484,
+          "temperature": 30.9918,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.516531
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.63,
+          "current": 2.3627,
+          "temperature": 29.6344,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.493907
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5743,
+          "current": 2.2655,
+          "temperature": 28.7421,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.479035
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5712,
+          "current": 2.2305,
+          "temperature": 27.9673,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.466122
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5697,
+          "current": 2.3397,
+          "temperature": 32.8424,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.547374
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5802,
+          "current": 2.4834,
+          "temperature": 30.3374,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.505624
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5609,
+          "current": 2.7787,
+          "temperature": 28.8495,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.480825
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 45,
+      "timestamp": "2026-09-23T13:56:42.797978+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6211,
+          "current": 2.7102,
+          "temperature": 30.8711,
+          "soc": 99.46,
+          "is_spike": false,
+          "temperature_norm": 0.514518
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6395,
+          "current": 2.4507,
+          "temperature": 53.8276,
+          "soc": 99.48,
+          "is_spike": true,
+          "temperature_norm": 0.897126
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6405,
+          "current": 2.2218,
+          "temperature": 28.2279,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.470464
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6261,
+          "current": 2.3118,
+          "temperature": 27.4652,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.457754
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6343,
+          "current": 2.3737,
+          "temperature": 27.8502,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.46417
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.577,
+          "current": 2.5617,
+          "temperature": 30.3308,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.505514
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5806,
+          "current": 2.4726,
+          "temperature": 30.0458,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.500764
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5995,
+          "current": 2.7336,
+          "temperature": 28.7664,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.479441
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5975,
+          "current": 2.3637,
+          "temperature": 29.8844,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.498073
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5802,
+          "current": 2.6387,
+          "temperature": 30.5109,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.508516
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 46,
+      "timestamp": "2026-09-23T13:56:42.798023+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6142,
+          "current": 2.3109,
+          "temperature": 28.5752,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.476254
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5797,
+          "current": 2.3488,
+          "temperature": 28.0827,
+          "soc": 99.47,
+          "is_spike": false,
+          "temperature_norm": 0.468046
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5706,
+          "current": 2.6523,
+          "temperature": 31.3549,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.522581
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5774,
+          "current": 2.6337,
+          "temperature": 30.1202,
+          "soc": 99.43,
+          "is_spike": false,
+          "temperature_norm": 0.502004
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6124,
+          "current": 2.6157,
+          "temperature": 29.3728,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.489546
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5589,
+          "current": 2.3841,
+          "temperature": 32.1578,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.535963
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5973,
+          "current": 2.7371,
+          "temperature": 52.1834,
+          "soc": 99.41,
+          "is_spike": true,
+          "temperature_norm": 0.869723
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5781,
+          "current": 2.2704,
+          "temperature": 31.9311,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.532185
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5765,
+          "current": 2.5688,
+          "temperature": 29.0155,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.483592
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5604,
+          "current": 2.2919,
+          "temperature": 28.8292,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.480486
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 47,
+      "timestamp": "2026-09-23T13:56:42.798068+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5834,
+          "current": 2.7503,
+          "temperature": 29.9709,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.499515
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.6302,
+          "current": 2.7417,
+          "temperature": 52.3061,
+          "soc": 99.46,
+          "is_spike": true,
+          "temperature_norm": 0.871768
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.6007,
+          "current": 2.2987,
+          "temperature": 28.365,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.47275
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.5913,
+          "current": 2.6082,
+          "temperature": 30.9552,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.515921
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.5959,
+          "current": 2.7393,
+          "temperature": 28.1684,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.469473
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.5526,
+          "current": 2.2792,
+          "temperature": 30.3395,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.505659
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.6034,
+          "current": 2.5353,
+          "temperature": 29.4588,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.49098
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5777,
+          "current": 2.2131,
+          "temperature": 29.0967,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.484944
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.5473,
+          "current": 2.3307,
+          "temperature": 30.04,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.500667
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5894,
+          "current": 2.6202,
+          "temperature": 32.5145,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.541909
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 48,
+      "timestamp": "2026-09-23T13:56:42.798111+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.5919,
+          "current": 2.7503,
+          "temperature": 29.4888,
+          "soc": 99.42,
+          "is_spike": false,
+          "temperature_norm": 0.491479
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5553,
+          "current": 2.7785,
+          "temperature": 29.8647,
+          "soc": 99.45,
+          "is_spike": false,
+          "temperature_norm": 0.497746
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5603,
+          "current": 2.7162,
+          "temperature": 33.4539,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.557564
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.6463,
+          "current": 2.4358,
+          "temperature": 27.2936,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.454894
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6448,
+          "current": 2.7009,
+          "temperature": 28.7849,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.479749
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.6448,
+          "current": 2.4778,
+          "temperature": 30.2154,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.503591
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.5894,
+          "current": 2.4276,
+          "temperature": 50.4935,
+          "soc": 99.39,
+          "is_spike": true,
+          "temperature_norm": 0.841559
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5929,
+          "current": 2.2931,
+          "temperature": 30.7322,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.512203
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.6344,
+          "current": 2.6593,
+          "temperature": 28.4723,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.474538
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.613,
+          "current": 2.569,
+          "temperature": 28.1169,
+          "soc": 99.4,
+          "is_spike": false,
+          "temperature_norm": 0.468614
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    },
+    {
+      "tick": 49,
+      "timestamp": "2026-09-23T13:56:42.798156+00:00",
+      "pack_id": "BTMS-PACK-001",
+      "cells": [
+        {
+          "cell_id": 0,
+          "voltage": 3.6334,
+          "current": 2.2339,
+          "temperature": 32.8964,
+          "soc": 99.41,
+          "is_spike": false,
+          "temperature_norm": 0.548273
+        },
+        {
+          "cell_id": 1,
+          "voltage": 3.5761,
+          "current": 2.6895,
+          "temperature": 28.7733,
+          "soc": 99.44,
+          "is_spike": false,
+          "temperature_norm": 0.479555
+        },
+        {
+          "cell_id": 2,
+          "voltage": 3.5788,
+          "current": 2.5588,
+          "temperature": 30.0328,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.500547
+        },
+        {
+          "cell_id": 3,
+          "voltage": 3.579,
+          "current": 2.3811,
+          "temperature": 30.5589,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.509315
+        },
+        {
+          "cell_id": 4,
+          "voltage": 3.6129,
+          "current": 2.3326,
+          "temperature": 28.6447,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.477412
+        },
+        {
+          "cell_id": 5,
+          "voltage": 3.553,
+          "current": 2.7691,
+          "temperature": 29.092,
+          "soc": 99.38,
+          "is_spike": false,
+          "temperature_norm": 0.484867
+        },
+        {
+          "cell_id": 6,
+          "voltage": 3.638,
+          "current": 2.5756,
+          "temperature": 28.5682,
+          "soc": 99.37,
+          "is_spike": false,
+          "temperature_norm": 0.476136
+        },
+        {
+          "cell_id": 7,
+          "voltage": 3.5964,
+          "current": 2.7834,
+          "temperature": 48.8121,
+          "soc": 99.36,
+          "is_spike": true,
+          "temperature_norm": 0.813535
+        },
+        {
+          "cell_id": 8,
+          "voltage": 3.614,
+          "current": 2.6715,
+          "temperature": 30.0149,
+          "soc": 99.36,
+          "is_spike": false,
+          "temperature_norm": 0.500249
+        },
+        {
+          "cell_id": 9,
+          "voltage": 3.5886,
+          "current": 2.2895,
+          "temperature": 30.451,
+          "soc": 99.39,
+          "is_spike": false,
+          "temperature_norm": 0.507516
+        }
+      ],
+      "generator": "scenario_driven",
+      "scenario": "single_spike"
+    }
+  ]
+}

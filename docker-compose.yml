@@ -6,20 +6,35 @@ networks:
 
 services:
   # ─────────────────────────────────────────────
-  # Phase 1: Message Broker
+  # Phase 1: Message Broker (Apache Kafka, KRaft mode — no Zookeeper)
   # ─────────────────────────────────────────────
   message-broker:
-    image: redis:alpine
+    image: apache/kafka:3.8.0
     container_name: message-broker
     ports:
-      - "6379:6379"
+      - "9092:9092"
     networks:
       - btms-net
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: INTERNAL://:19092,EXTERNAL://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://message-broker:19092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@message-broker:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_RETENTION_MS: 600000
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
 
   # ─────────────────────────────────────────────  # ─────────────────────────────────────────────
   # Authentication & User Management (FastAPI + SQLite)
@@ -50,8 +65,8 @@ services:
       message-broker:
         condition: service_healthy
     environment:
-      - REDIS_HOST=message-broker
-      - REDIS_PORT=6379
+      - KAFKA_BOOTSTRAP_SERVERS=message-broker:19092
+      - KAFKA_TOPIC=battery_stream
 
   # ─────────────────────────────────────────────
   # Phase 4: AI Optimization Engine (FastAPI)
@@ -67,8 +82,44 @@ services:
       message-broker:
         condition: service_healthy
     environment:
-      - REDIS_HOST=message-broker
-      - REDIS_PORT=6379
+      - KAFKA_BOOTSTRAP_SERVERS=message-broker:19092
+      - KAFKA_TOPIC=battery_stream
+      - KAFKA_GROUP_ID=btms-ai-engine
+
+  # ─────────────────────────────────────────────
+  # Big Data: Spark Structured Streaming (Kafka → Parquet data lake)
+  # ─────────────────────────────────────────────
+  spark-streaming:
+    build: ./analytics
+    container_name: spark-streaming
+    command: ["python", "spark_job.py"]
+    networks:
+      - btms-net
+    depends_on:
+      message-broker:
+        condition: service_healthy
+    volumes:
+      - lake-data:/data/lake
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=message-broker:19092
+      - KAFKA_TOPIC=battery_stream
+      - LAKE_PATH=/data/lake
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────
+  # Big Data: Analytics API (pandas + PyArrow over the data lake)
+  # ─────────────────────────────────────────────
+  analytics-api:
+    build: ./analytics
+    container_name: analytics-api
+    ports:
+      - "8100:8100"
+    networks:
+      - btms-net
+    volumes:
+      - lake-data:/data/lake:ro
+    environment:
+      - LAKE_PATH=/data/lake
 
   # ─────────────────────────────────────────────
   # Phase 2: Sensor Simulation Engine
@@ -99,6 +150,47 @@ services:
     depends_on:
       - ai-engine
       - auth-service
+      - analytics-api
+
+  # ─────────────────────────────────────────────
+  # Event-driven: Alert Service (consumes btms_alerts → SQLite + REST)
+  # ─────────────────────────────────────────────
+  alert-service:
+    build: ./alert_service
+    container_name: alert-service
+    ports:
+      - "8200:8200"
+    networks:
+      - btms-net
+    depends_on:
+      message-broker:
+        condition: service_healthy
+    volumes:
+      - alert-data:/data
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=message-broker:19092
+      - KAFKA_ALERTS_TOPIC=btms_alerts
+      - DB_PATH=/data/alerts.db
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────
+  # Kafka UI: browse topics, partitions, consumer groups and lag
+  # ─────────────────────────────────────────────
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"
+    networks:
+      - btms-net
+    depends_on:
+      message-broker:
+        condition: service_healthy
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=btms
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=message-broker:19092
 
 volumes:
   auth-data:
+  lake-data:
+  alert-data:

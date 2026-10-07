@@ -1,0 +1,32 @@
+BTMS Keyword-Driven Test Report
+Run at: 2026-09-23T19:26:42.334613
+
+Test ID        Description                                   Status   Detail
+--------------------------------------------------------------------------------------------------------------
+TC-KDT-001     Nanofluid density — low concentration (0.5%)  PASS     φ=0.5% → ρ_nf=1011.81 kg/m³  (expected [1005.0, 1020.0])
+TC-KDT-002     Nanofluid density — medium concentration (1.  PASS     φ=1.5% → ρ_nf=1041.44 kg/m³  (expected [1035.0, 1055.0])
+TC-KDT-003     Nanofluid density — high concentration (3.0%  PASS     φ=3.0% → ρ_nf=1085.89 kg/m³  (expected [1075.0, 1100.0])
+TC-KDT-004     Flow velocity positive — nominal Re 450 low   PASS     Re=450.0, φ=0.5% → v=0.400802 m/s
+TC-KDT-005     Flow velocity positive — spike Re 680 high c  PASS     Re=680.0, φ=3.0% → v=0.600738 m/s
+TC-KDT-006     Nusselt number above laminar floor — nominal  PASS     Re=450.0, Pr=6.5 → Nu=5.038  (min 3.66)
+TC-KDT-007     Nusselt number above laminar floor — spike R  PASS     Re=680.0, Pr=6.5 → Nu=5.575  (min 3.66)
+TC-KDT-008     CFD severity NORMAL — all cells at 28°C       PASS     Tmax=28.0°C → severity='normal'
+TC-KDT-009     CFD severity NORMAL — all cells at 35°C (bor  PASS     Tmax=35.0°C → severity='normal'
+TC-KDT-010     CFD severity WARNING — pack at 41°C           PASS     Tmax=41.0°C → severity='warning'
+TC-KDT-011     CFD severity WARNING — pack at 44°C           PASS     Tmax=44.0°C → severity='warning'
+TC-KDT-012     CFD severity CRITICAL — spike cell at 46°C    PASS     Spike cell T=46.0°C → severity='critical', spike_cells=[0]
+TC-KDT-013     CFD severity CRITICAL — spike cell at 55°C    PASS     Spike cell T=55.0°C → severity='critical', spike_cells=[0]
+TC-KDT-014     Reynolds number within bounds — normal opera  PASS     T=28.0°C → Re=450.0  (allowed [400.0, 700.0])
+TC-KDT-015     Reynolds number within bounds — warning regi  PASS     T=41.0°C → Re=550.0  (allowed [400.0, 700.0])
+TC-KDT-016     Reynolds number within bounds — critical reg  PASS     T=47.0°C → Re=680.0  (allowed [400.0, 700.0])
+TC-KDT-017     Concentration key — normal → low              PASS     T=28.0°C → conc_key='low'  (expected 'low')
+TC-KDT-018     Concentration key — warning → medium          PASS     T=41.0°C → conc_key='medium'  (expected 'medium')
+TC-KDT-019     Concentration key — critical → high           PASS     T=47.0°C → conc_key='high'  (expected 'high')
+TC-KDT-020     Temperature normalisation — 0°C maps to 0.0   PASS     T=0.0°C → norm=0.000000  (expected 0.0)
+TC-KDT-021     Temperature normalisation — 60°C maps to 1.0  PASS     T=60.0°C → norm=1.000000  (expected 1.0)
+TC-KDT-022     Temperature normalisation — 30°C maps to 0.5  PASS     T=30.0°C → norm=0.500000  (expected 0.5)
+TC-KDT-023     Enrich payload adds temperature_norm field    PASS     All 10 cells have 'temperature_norm': True  (sample norm=0.5)
+TC-KDT-024     Normalised value in [0-1] — low temp 5°C      PASS     T=5.0°C → norm=0.083333  (must be in [0, 1])
+TC-KDT-025     Normalised value in [0-1] — high temp 58°C    PASS     T=58.0°C → norm=0.966667  (must be in [0, 1])
+
+Passed 25/25  (100.0%)

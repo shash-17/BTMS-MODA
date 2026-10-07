@@ -1,0 +1,7 @@
+obs,module,file,lines_of_code,defects_c,codes
+1,Simulator,simulator/simulator.py,106,2,E501x1 F401x1
+2,Ingestion,ingestion/app.py,122,2,E302x1 E501x1
+3,AI Anomaly Detector,ai_engine/anomaly_detector.py,392,2,E127x1 F401x1
+4,AI Engine (main),ai_engine/main.py,359,0,
+5,Auth Service,auth_service/main.py,236,18,E302x13 E305x1 E501x1 F401x3
+6,Dev Server,dev_server.py,259,7,E402x4 E501x3

@@ -1,0 +1,16 @@
+test_id,raw_temp,expected_norm,clamp_expected,description
+DDT-ING-001,0.0,0.000000,0.000000,Lower bound 0C maps to 0.0
+DDT-ING-002,60.0,1.000000,1.000000,Upper bound 60C maps to 1.0
+DDT-ING-003,30.0,0.500000,0.500000,Midpoint 30C maps to 0.5
+DDT-ING-004,15.0,0.250000,0.250000,Quarter point 15C maps to 0.25
+DDT-ING-005,45.0,0.750000,0.750000,Three-quarter 45C maps to 0.75
+DDT-ING-006,6.0,0.100000,0.100000,10 percent point 6C
+DDT-ING-007,54.0,0.900000,0.900000,90 percent point 54C
+DDT-ING-008,22.5,0.375000,0.375000,Non-round 22.5C
+DDT-ING-009,38.4,0.640000,0.640000,Non-round 38.4C
+DDT-ING-010,-10.0,-0.166667,0.000000,Below lower bound clamped
+DDT-ING-011,70.0,1.166667,1.000000,Above upper bound clamped
+DDT-ING-012,25.0,0.416667,0.416667,Ambient indoor temperature
+DDT-ING-013,46.0,0.766667,0.766667,Just above critical threshold 46C
+DDT-ING-014,1.0,0.016667,0.016667,Near-zero temperature 1C
+DDT-ING-015,59.9,0.998333,0.998333,Near-max temperature 59.9C

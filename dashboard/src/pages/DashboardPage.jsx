@@ -281,6 +281,13 @@ export default function DashboardPage() {
           </button>
 
           <Link
+            to="/analytics"
+            style={{ color: "#aaa", fontSize: "12px", textDecoration: "none", padding: "4px 8px", border: "1px solid #333", borderRadius: "4px", fontWeight: "600" }}
+          >
+            Analytics
+          </Link>
+
+          <Link
             to="/"
             style={{ color: "#aaa", fontSize: "12px", textDecoration: "none", padding: "4px 8px", border: "1px solid #333", borderRadius: "4px", fontWeight: "600" }}
           >
@@ -373,7 +380,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Right column: recommendations + service health */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0, overflow: "hidden" }}>
           <RecommendationsPanel recommendation={recommendation} thermalStatus={thermalStatus} />
           <ServiceHealthMonitor />
         </div>

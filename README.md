@@ -49,8 +49,8 @@ The **Battery Thermal Management System (BTMS)** optimizes active cooling for hi
 ```mermaid
 graph TD
     SIM["Sensor Simulator<br/>(10 × 21700 Cells @ 1 Hz)"] -->|HTTP POST| INGEST["Ingestion Service<br/>(Flask :5001)"]
-    INGEST -->|LPUSH / Normalization| REDIS["Redis Message Broker<br/>(:6379)"]
-    REDIS -->|RPOP Queue| AI["AI & CFD Engine<br/>(FastAPI :8000)<br/>IsolationForest ML"]
+    INGEST -->|Produce / Normalization| REDIS["Kafka Message Broker<br/>(:9092)"]
+    REDIS -->|Consume topic| AI["AI & CFD Engine<br/>(FastAPI :8000)<br/>IsolationForest ML"]
     AI -->|Live State| DASH["Digital Twin Dashboard<br/>(React + Three.js :5174/5173)"]
     AUTH["Auth Service<br/>(FastAPI :9000)<br/>SQLite + JWT"] -->|JWT Auth| DASH
 ```
@@ -70,29 +70,49 @@ For complete technical specifications, see **[BTMS_DOCUMENTATION.md](file:///Use
 
 ### Method 1: Full Docker Compose Stack (Production Mode)
 
-Runs all 6 microservices in isolated Docker containers with automated Redis networking.
+Runs all 6 microservices in isolated Docker containers with automated Kafka networking.
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/shash-17/BTMS.git
 cd BTMS
 
-# 2. Build and start all 6 containers
+# 2. Build and start all 6 containers (foreground — logs printed to terminal)
 docker compose up --build
 
-# (Optional) To run in the background (detached mode):
+# Run in the background (detached mode):
 docker compose up --build -d
 
-# View live container logs:
+# View live logs from all containers (Ctrl+C to exit):
 docker compose logs -f
 
-# Stop all services:
+# View logs for a specific service only:
+docker compose logs -f ai-engine
+
+# Check status of all containers:
+docker compose ps
+
+# Rebuild and restart a single service without restarting the whole stack:
+docker compose up --build -d ai-engine
+
+# ── Stopping & Teardown ─────────────────────────────────────────────────────
+
+# Stop all running containers (keeps volumes & images intact):
+docker compose stop
+
+# Stop and remove containers + networks (volumes & images are kept):
 docker compose down
+
+# Stop and remove containers, networks AND named volumes (auth-data, etc.):
+docker compose down -v
+
+# Full clean slate — remove containers, networks, volumes, AND built images:
+docker compose down -v --rmi all
 ```
 
 ---
 
-### Method 2: Standalone Local Dev Mode (No Docker or Redis required)
+### Method 2: Standalone Local Dev Mode (No Docker or Kafka required)
 
 For instant local development, the system includes a unified dev server (`dev_server.py`) that simulates telemetry and runs the ML engine in-memory.
 
@@ -134,7 +154,7 @@ npm run dev
 | **AI CFD & ML Engine** | All | [`http://localhost:8000`](http://localhost:8000) | Interactive API Docs: [`/docs`](http://localhost:8000/docs) |
 | **Auth Service** | All | [`http://localhost:9000`](http://localhost:9000) | Interactive API Docs: [`/auth/docs`](http://localhost:9000/auth/docs) |
 | **Ingestion Service** | All | [`http://localhost:5001/health`](http://localhost:5001/health) | Sensor telemetry endpoint (`/telemetry`) |
-| **Message Broker** | Docker | `localhost:6379` | Redis stream queue (`battery_stream`) |
+| **Message Broker** | Docker | `localhost:9092` | Apache Kafka topic (`battery_stream`) |
 
 ---
 
@@ -176,6 +196,24 @@ See **[test_report.txt](file:///Users/shashanksathish/BTMS/test_report.txt)** fo
 ---
 
 ## 🔧 Troubleshooting & Port Cleanup
+
+### Docker Compose teardown
+
+```bash
+# Stop containers without removing them:
+docker compose stop
+
+# Remove containers and networks (volumes & images kept):
+docker compose down
+
+# Remove containers, networks, AND persistent volumes:
+docker compose down -v
+
+# Full wipe — containers, networks, volumes, and all built images:
+docker compose down -v --rmi all
+```
+
+### Local process port cleanup
 
 If port 8000, 9000, or 5001 is already in use by a background process, free them with:
 

@@ -1,0 +1,4 @@
+# Test suite requirements (lightweight — no live services needed)
+pytest>=7.4
+pytest-html>=4.0        # --html report generation
+colorama>=0.4.6         # coloured terminal output

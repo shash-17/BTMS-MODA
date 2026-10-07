@@ -1,0 +1,26 @@
+test_id,description,keyword,arg1,arg2,arg3,expected_result
+TC-KDT-001,Nanofluid density — low concentration (0.5%),VERIFY NANOFLUID DENSITY IN RANGE,0.005,1005,1020,PASS
+TC-KDT-002,Nanofluid density — medium concentration (1.5%),VERIFY NANOFLUID DENSITY IN RANGE,0.015,1035,1055,PASS
+TC-KDT-003,Nanofluid density — high concentration (3.0%),VERIFY NANOFLUID DENSITY IN RANGE,0.030,1075,1100,PASS
+TC-KDT-004,Flow velocity positive — nominal Re 450 low conc,VERIFY FLOW VELOCITY POSITIVE,0.005,450,,PASS
+TC-KDT-005,Flow velocity positive — spike Re 680 high conc,VERIFY FLOW VELOCITY POSITIVE,0.030,680,,PASS
+TC-KDT-006,Nusselt number above laminar floor — nominal,VERIFY NUSSELT NUMBER MINIMUM,450,6.5,3.66,PASS
+TC-KDT-007,Nusselt number above laminar floor — spike Re,VERIFY NUSSELT NUMBER MINIMUM,680,6.5,3.66,PASS
+TC-KDT-008,CFD severity NORMAL — all cells at 28°C,VERIFY CFD SEVERITY NORMAL,28.0,,,PASS
+TC-KDT-009,CFD severity NORMAL — all cells at 35°C (border),VERIFY CFD SEVERITY NORMAL,35.0,,,PASS
+TC-KDT-010,CFD severity WARNING — pack at 41°C,VERIFY CFD SEVERITY WARNING,41.0,,,PASS
+TC-KDT-011,CFD severity WARNING — pack at 44°C,VERIFY CFD SEVERITY WARNING,44.0,,,PASS
+TC-KDT-012,CFD severity CRITICAL — spike cell at 46°C,VERIFY CFD SEVERITY CRITICAL,46.0,,,PASS
+TC-KDT-013,CFD severity CRITICAL — spike cell at 55°C,VERIFY CFD SEVERITY CRITICAL,55.0,,,PASS
+TC-KDT-014,Reynolds number within bounds — normal operation,VERIFY CFD RE IN BOUNDS,28.0,,,PASS
+TC-KDT-015,Reynolds number within bounds — warning regime,VERIFY CFD RE IN BOUNDS,41.0,,,PASS
+TC-KDT-016,Reynolds number within bounds — critical regime,VERIFY CFD RE IN BOUNDS,47.0,,,PASS
+TC-KDT-017,Concentration key — normal → low,VERIFY CFD CONCENTRATION MATCHES SEVERITY,28.0,low,,PASS
+TC-KDT-018,Concentration key — warning → medium,VERIFY CFD CONCENTRATION MATCHES SEVERITY,41.0,medium,,PASS
+TC-KDT-019,Concentration key — critical → high,VERIFY CFD CONCENTRATION MATCHES SEVERITY,47.0,high,,PASS
+TC-KDT-020,Temperature normalisation — 0°C maps to 0.0,VERIFY TEMPERATURE NORMALISATION,0.0,0.0,,PASS
+TC-KDT-021,Temperature normalisation — 60°C maps to 1.0,VERIFY TEMPERATURE NORMALISATION,60.0,1.0,,PASS
+TC-KDT-022,Temperature normalisation — 30°C maps to 0.5,VERIFY TEMPERATURE NORMALISATION,30.0,0.5,,PASS
+TC-KDT-023,Enrich payload adds temperature_norm field,VERIFY ENRICH PAYLOAD ADDS NORM,30.0,,,PASS
+TC-KDT-024,Normalised value in [0-1] — low temp 5°C,VERIFY NORMALISATION BOUNDS,5.0,,,PASS
+TC-KDT-025,Normalised value in [0-1] — high temp 58°C,VERIFY NORMALISATION BOUNDS,58.0,,,PASS

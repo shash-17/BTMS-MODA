@@ -2,8 +2,8 @@
 BTMS Data Ingestion Service
 ─────────────────────────────────────────────────────────────────────
 Flask microservice that receives telemetry from the simulator,
-normalises temperature values, and pushes the payload onto a Redis
-queue for the AI Optimisation Engine to consume.
+normalises temperature values, and publishes the payload to an Apache
+Kafka topic for the AI Optimisation Engine to consume.
 """
 
 import os
@@ -15,7 +15,6 @@ try:
     HAS_CORS = True
 except ImportError:
     HAS_CORS = False
-import redis
 
 # ─── Logging ──────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -24,26 +23,32 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ─── App & Redis ──────────────────────────────────────────────────────────────
+# ─── App & Kafka ──────────────────────────────────────────────────────────────
 app = Flask(__name__)
 if HAS_CORS:
     CORS(app)
 
-REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-QUEUE_NAME = "battery_stream"
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "battery_stream")
 
 # Temperature normalisation bounds (°C)
 TEMP_MIN = 0.0
 TEMP_MAX = 60.0
 
-redis_client = redis.Redis(
-    host=REDIS_HOST,
-    port=REDIS_PORT,
-    decode_responses=True,
-    socket_connect_timeout=0.5,
-    socket_timeout=0.5
-)
+_producer = None
+
+
+def get_producer():
+    """Lazily create the Kafka producer (so imports work without a broker)."""
+    global _producer
+    if _producer is None:
+        from confluent_kafka import Producer
+        _producer = Producer({
+            "bootstrap.servers": KAFKA_BOOTSTRAP_SERVERS,
+            "linger.ms": 5,
+            "message.timeout.ms": 5000,
+        })
+    return _producer
 
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -73,18 +78,18 @@ def add_cors_headers(response):
 def health():
     """Health-check endpoint used by Docker and load balancers."""
     try:
-        redis_client.ping()
-        redis_status = "ok"
+        get_producer().list_topics(timeout=1.0)
+        kafka_status = "ok"
     except Exception:
-        redis_status = "unavailable"
-    return jsonify({"service": "ingestion", "status": "ok", "redis": redis_status})
+        kafka_status = "unavailable"
+    return jsonify({"service": "ingestion", "status": "ok", "kafka": kafka_status})
 
 
 @app.route("/telemetry", methods=["POST"])
 def ingest_telemetry():
     """
     Receive raw telemetry JSON from the simulator.
-    Normalise temperatures and push onto the Redis queue.
+    Normalise temperatures and publish to the Kafka topic.
     """
     if not request.is_json:
         return jsonify({"error": "Content-Type must be application/json"}), 415
@@ -98,13 +103,13 @@ def ingest_telemetry():
     # Enrich with normalised values
     enriched = enrich_payload(payload)
 
-    # Push to Redis queue (newest at head; AI engine pops from tail)
+    # Publish to Kafka (single key keeps ticks ordered in one partition)
     try:
-        redis_client.lpush(QUEUE_NAME, json.dumps(enriched))
-        # Keep queue bounded to last 200 payloads
-        redis_client.ltrim(QUEUE_NAME, 0, 199)
-    except redis.RedisError as e:
-        logger.error("Redis error: %s", e)
+        producer = get_producer()
+        producer.produce(KAFKA_TOPIC, key="btms-pack", value=json.dumps(enriched).encode("utf-8"))
+        producer.poll(0)
+    except Exception as e:
+        logger.error("Kafka error: %s", e)
         return jsonify({"error": "Failed to enqueue telemetry"}), 503
 
     spike_cells = [c["cell_id"] for c in enriched["cells"] if c.get("is_spike")]
