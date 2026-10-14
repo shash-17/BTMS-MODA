@@ -1,5 +1,5 @@
 """
-BTMS Local Dev Server — All-in-one (no Redis, no Docker needed)
+BTMS Local Dev Server — All-in-one (no Kafka, no Docker needed)
 ─────────────────────────────────────────────────────────────────
 Runs the simulator + ML anomaly detector + AI engine in a single process.
 Serves FastAPI on port 8000 so the Vite dashboard at localhost:5174

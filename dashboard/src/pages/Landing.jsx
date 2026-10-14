@@ -370,7 +370,7 @@ export default function Landing() {
             </h2>
             <p style={{ color: "#777", maxWidth: "680px", margin: 0, fontSize: "14px" }}>
               Engineered with zero tight coupling. Each node operates independently over network boundaries
-              with Redis pub/sub message brokering, SQLite persistent user storage, and stateless AI heuristics.
+              with Apache Kafka event streaming, Spark analytics, SQLite persistent user storage, and stateless AI heuristics.
             </p>
           </div>
 
@@ -403,7 +403,7 @@ export default function Landing() {
               <h3 style={{ fontSize: "16px", fontWeight: "800", margin: "0 0 8px 0" }}>Ingestion Service</h3>
               <p style={{ fontSize: "12px", color: "#888", lineHeight: 1.5, margin: 0 }}>
                 High-frequency BMS sensor ingest. Validates JSON telemetry payloads (voltage, current, temperature, SoC)
-                and pushes raw telemetry batches to Redis.
+                and produces raw telemetry batches to Kafka.
               </p>
             </div>
 
@@ -417,15 +417,15 @@ export default function Landing() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                <span style={{ fontSize: "10px", fontWeight: "800", color: "#666" }}>PORT 6379</span>
+                <span style={{ fontSize: "10px", fontWeight: "800", color: "#666" }}>PORT 9092</span>
                 <span style={{ fontSize: "10px", background: "#222", padding: "2px 6px", borderRadius: "3px" }}>
-                  REDIS
+                  KAFKA
                 </span>
               </div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", margin: "0 0 8px 0" }}>Message Broker</h3>
               <p style={{ fontSize: "12px", color: "#888", lineHeight: 1.5, margin: 0 }}>
-                Pub/Sub queue separating sensor producers from analytics consumers. Guarantees sub-millisecond
-                buffering and backpressure resilience.
+                Distributed event log separating sensor producers from AI, alerting and Spark consumers. Durable,
+                replayable topics with independent consumer groups.
               </p>
             </div>
 
@@ -515,14 +515,14 @@ export default function Landing() {
               Live Service Health
             </h2>
             <p style={{ color: "#777", fontSize: "14px", lineHeight: 1.6, margin: "0 0 20px" }}>
-              All five microservices are independently monitored. Start the dev server to see real-time latency.
+              All microservices are independently monitored. Start the dev server or the Docker stack to see real-time latency.
               The architecture is fully containerised via Docker Compose for production deployment.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 { label: "Independent Scaling", desc: "Each service scales horizontally without affecting peers" },
                 { label: "Health Endpoints", desc: "Every HTTP service exposes /health for load-balancer probing" },
-                { label: "Redis Pub/Sub", desc: "Telemetry flows asynchronously — no request blocking" },
+                { label: "Kafka Event Streaming", desc: "Telemetry flows asynchronously through durable topics — no request blocking" },
               ].map(({ label, desc }) => (
                 <div key={label} style={{ display: "flex", gap: 12 }}>
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#555", marginTop: 7, flexShrink: 0 }} />

@@ -28,11 +28,36 @@ const SERVICES = [
   {
     id: "message-broker",
     name: "Message Broker",
-    port: 6379,
-    // Redis doesn't have HTTP — infer from AI engine redis flag
+    port: 9092,
+    // Kafka has no HTTP endpoint — infer from AI engine kafka flag
     url: null,
-    tag: "REDIS",
-    desc: "Pub/sub queue",
+    tag: "KAFKA",
+    desc: "Event streaming (KRaft)",
+  },
+  {
+    id: "spark-streaming",
+    name: "Spark Streaming",
+    port: "—",
+    // Spark has no HTTP endpoint — infer from analytics API lake_ready flag
+    url: null,
+    tag: "SPARK",
+    desc: "Kafka → Parquet lake",
+  },
+  {
+    id: "analytics-api",
+    name: "Analytics API",
+    port: 8100,
+    url: "http://localhost:8100/health",
+    tag: "PYARROW",
+    desc: "Data lake analytics",
+  },
+  {
+    id: "alert-service",
+    name: "Alert Service",
+    port: 8200,
+    url: "http://localhost:8200/health",
+    tag: "KAFKA+SQLITE",
+    desc: "Anomaly alert store",
   },
   {
     id: "dashboard",
@@ -100,8 +125,8 @@ export default function ServiceHealthMonitor({ compact = false }) {
     // Check all pingable services in parallel
     const results = await Promise.all(
       SERVICES.map(async (s) => {
-        if (s.id === "message-broker") {
-          // Infer Redis status from the AI engine's /health endpoint redis field
+        if (s.id === "message-broker" || s.id === "spark-streaming") {
+          // Inferred below from AI engine / analytics API health payloads
           return [s.id, { status: "unknown", latency: null }];
         }
         const result = await pingService(s);
@@ -112,15 +137,31 @@ export default function ServiceHealthMonitor({ compact = false }) {
 
     const map = Object.fromEntries(results);
 
-    // Infer Redis from AI engine health if available
+    // Infer Kafka from AI engine health if available
     if (map["ai-engine"]?.status === "up") {
       try {
         const r = await fetch("http://localhost:8000/health");
         const j = await r.json();
-        map["message-broker"] = { status: j.redis ? "up" : "down", latency: null };
+        map["message-broker"] = {
+          status: j.kafka === undefined ? "unknown" : j.kafka ? "up" : "down",
+          latency: null,
+        };
       } catch {
         map["message-broker"] = { status: "unknown", latency: null };
       }
+    }
+
+    // Infer Spark from analytics API: lake_ready means Spark has written the raw layer
+    if (map["analytics-api"]?.status === "up") {
+      try {
+        const r = await fetch("http://localhost:8100/health");
+        const j = await r.json();
+        map["spark-streaming"] = { status: j.lake_ready ? "up" : "down", latency: null };
+      } catch {
+        map["spark-streaming"] = { status: "unknown", latency: null };
+      }
+    } else {
+      map["spark-streaming"] = { status: "unknown", latency: null };
     }
 
     setStatuses(map);
@@ -281,7 +322,7 @@ export default function ServiceHealthMonitor({ compact = false }) {
                   </span>
                 </div>
                 <div style={{ fontSize: 10, color: "var(--bw-400)", fontFamily: "var(--font-mono)", display: "flex", alignItems: "center", gap: 6 }}>
-                  <span>:{s.port}</span>
+                  <span>{s.port === "—" ? "no port" : `:${s.port}`}</span>
                   <span style={{ color: "var(--bw-200)" }}>·</span>
                   <span>{s.desc}</span>
                 </div>

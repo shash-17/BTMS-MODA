@@ -10,13 +10,13 @@ const MICROSERVICES = [
     statusEndpoint: null,
     defaultStatus: "Active (Producer)",
     description:
-      "High-throughput HTTP ingestion gateway receiving 10-cell battery packet telemetry (voltage, current, temperature, state-of-charge). Validates payload schemas and pushes batches into Redis broker.",
+      "High-throughput HTTP ingestion gateway receiving 10-cell battery packet telemetry (voltage, current, temperature, state-of-charge). Validates payload schemas and produces batches to the Kafka battery_stream topic.",
     inputs: "JSON Telemetry from BMS / CAN bus emulator",
-    outputs: "Redis Stream payload (`btms:telemetry`)",
+    outputs: "Kafka message on topic `battery_stream` (key: btms-pack)",
     docker: {
       image: "python:3.11-slim",
       portMapping: "5001:5000",
-      env: ["REDIS_HOST=message-broker", "REDIS_PORT=6379"],
+      env: ["KAFKA_BOOTSTRAP_SERVERS=message-broker:19092", "KAFKA_TOPIC=battery_stream"],
     },
     codeSample: `{
   "pack_id": "BTMS-PACK-001",
@@ -29,23 +29,27 @@ const MICROSERVICES = [
   {
     id: "broker",
     name: "Message Broker",
-    port: "6379",
-    tech: "Redis Alpine",
-    role: "Decoupled Asynchronous Pub/Sub",
+    port: "9092",
+    tech: "Apache Kafka",
+    role: "Distributed Event Streaming",
     statusEndpoint: null,
-    defaultStatus: "Running (Buffer)",
+    defaultStatus: "Running (KRaft)",
     description:
-      "In-memory stream broker eliminating direct coupling between the sensor ingestion layer and the compute-heavy AI optimization engine. Handles network backpressure with sub-millisecond buffering.",
-    inputs: "Batched JSON telemetry from Ingestion Service",
-    outputs: "Pub/Sub events delivered to AI Engine subscribers",
+      "Apache Kafka 3.8.0 in KRaft mode (no Zookeeper) decoupling ingestion from the AI engine and the Spark analytics pipeline. Independent consumer groups each receive every message from a durable, replayable log.",
+    inputs: "Produced JSON telemetry from Ingestion Service",
+    outputs: "battery_stream consumed by AI Engine and Spark; btms_alerts consumed by Alert Service",
     docker: {
-      image: "redis:alpine",
-      portMapping: "6379:6379",
-      env: ["HEALTHCHECK=redis-cli ping"],
+      image: "apache/kafka:3.8.0",
+      portMapping: "9092:9092",
+      env: ["KAFKA_PROCESS_ROLES=broker,controller", "KAFKA_LOG_RETENTION_MS=600000"],
     },
-    codeSample: `# Redis Stream Key: btms:telemetry
-XADD btms:telemetry * tick 2341 pack_id BTMS-PACK-001 ...
-XREADGROUP GROUP ai_workers worker1 COUNT 10 BLOCK 2000`,
+    codeSample: `# Topics
+battery_stream         raw telemetry
+btms_recommendations   per-tick cooling directives
+btms_alerts            anomaly events
+
+# Consumer groups
+btms-ai-engine, btms-alert-service, spark`,
   },
   {
     id: "ai_engine",
@@ -62,7 +66,7 @@ XREADGROUP GROUP ai_workers worker1 COUNT 10 BLOCK 2000`,
     docker: {
       image: "python:3.11-slim",
       portMapping: "8000:8000",
-      env: ["REDIS_HOST=message-broker", "REDIS_PORT=6379"],
+      env: ["KAFKA_BOOTSTRAP_SERVERS=message-broker:19092", "KAFKA_GROUP_ID=btms-ai-engine"],
     },
     codeSample: `{
   "severity": "critical",
