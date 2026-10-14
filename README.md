@@ -261,7 +261,9 @@ The Analytics API reads directly from the Parquet lake (mounted read-only) with 
 #### Composite Thermal-Risk Score Formulation
 Cells are ranked dynamically using a multi-factor risk index ($0 - 100$ scale):
 
-$$\text{Risk Score} = 0.50 \cdot \text{SpikeRate}_{\%} + 0.35 \cdot \left[\frac{P_{95}(T) - 25}{30} \times 100\right] + 0.15 \cdot \left[\frac{\sigma(T)}{10} \times 100\right]$$
+$$
+\text{Risk Score} = 0.50 \times \text{Spike Rate} + 0.35 \times \left( \frac{P_{95}(T) - 25}{30} \times 100 \right) + 0.15 \times \left( \frac{\sigma(T)}{10} \times 100 \right)
+$$
 
 ### Visual Analytics Dashboard (`/analytics`)
 Access the analytics interface via the top navigation bar or directly at **[`http://localhost:3000/analytics`](http://localhost:3000/analytics)** (Docker) or **[`http://localhost:5173/analytics`](http://localhost:5173/analytics)** (Local dev):
@@ -443,5 +445,3 @@ docker compose exec message-broker /opt/kafka/bin/kafka-consumer-groups.sh \
 ## 📚 Detailed Technical Documentation
 
 - **[BTMS_DOCUMENTATION.md](BTMS_DOCUMENTATION.md)**: Mathematical derivations (Navier-Stokes, Graetz-Dittus-Boelter, nanofluid thermophysical equations) and full REST schemas.
-- **[KAFKA_SPARK_BIGDATA_NOTES.txt](KAFKA_SPARK_BIGDATA_NOTES.txt)**: In-depth technical architecture notes on Kafka KRaft mode, PySpark Structured Streaming, and Medallion Data Lake storage.
-- **[MICROSERVICES_DEVOPS_REPORT.md](MICROSERVICES_DEVOPS_REPORT.md)**: Container orchestration, security audits, networking topography, and DevOps best practices.

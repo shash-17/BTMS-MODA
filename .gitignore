@@ -80,6 +80,7 @@ SQM_SPC_EXPERIMENT_09.txt
 # ==============================================================================
 # Presentation Scripts & Implementation Notes
 # ==============================================================================
+context.md
 PRESENTATION_SCRIPT.md
 KAFKA_SPARK_BIGDATA_NOTES.txt
 *NOTES*.txt
