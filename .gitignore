@@ -1,11 +1,15 @@
-# Node
+# ==============================================================================
+# Node & Frontend
+# ==============================================================================
 node_modules/
 dashboard/dist/
 dashboard/.env.local
 *.log
 npm-debug.log*
 
-# Python
+# ==============================================================================
+# Python & Virtual Environments
+# ==============================================================================
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -15,25 +19,89 @@ venv/
 .pytest_cache/
 */.pytest_cache/
 
-# Databases (don't commit SQLite DBs)
+# ==============================================================================
+# Databases & Big Data Lake Storage
+# ==============================================================================
 *.db
 *.sqlite
 *.sqlite3
+lake/
+lake-data/
+*.parquet
+_checkpoints/
 
-# Docker / infra
+# ==============================================================================
+# Docker & Environment Configs
+# ==============================================================================
 .env
 .env.*
 !.env.example
 
-# OS
+# ==============================================================================
+# OS & IDE
+# ==============================================================================
 .DS_Store
 Thumbs.db
-
-# IDE
 .vscode/
 .idea/
 *.swp
 
-# Build artifacts
+# ==============================================================================
+# Build Artifacts
+# ==============================================================================
 dist/
 build/
+
+# ==============================================================================
+# Test Reports & Quality Assurance Outputs
+# ==============================================================================
+test_report.txt
+PROJECT_TESTING_REPORT.txt
+PROJECT_TESTING_REPORT_DETAILED.txt
+MICROSERVICES_DEVOPS_REPORT.md
+spc_btms_modules_report.txt
+spc_btms_modules_data.csv
+tests/reports/
+*/tests/reports/
+*.report.txt
+*_report.txt
+*_REPORT.md
+*REPORT*.md
+reports/
+
+# ==============================================================================
+# Technical Specifications & Experiment Logs
+# ==============================================================================
+TECHNICAL_SPECIFICATIONS.txt
+SQM_SPC_EXPERIMENT_09.txt
+*SPECIFICATION*.txt
+*EXPERIMENT*.txt
+
+# ==============================================================================
+# Presentation Scripts & Implementation Notes
+# ==============================================================================
+PRESENTATION_SCRIPT.md
+KAFKA_SPARK_BIGDATA_NOTES.txt
+*NOTES*.txt
+*_NOTES.txt
+*SCRIPT*.md
+*_script.md
+spc_btms_modules.py
+spc_*.py
+
+# ==============================================================================
+# Generated Charts & Standalone Images
+# ==============================================================================
+spc_btms_modules_chart.png
+*.chart.png
+*_chart.png
+*.png
+!dashboard/src/assets/**
+!dashboard/public/**
+
+# ==============================================================================
+# Mutation Testing & Synthetic Data Artifacts
+# ==============================================================================
+mutants/
+.mutmut-cache/
+tests/synthetic/generated/*.json
